@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+        "name": "User #1",
+        "city": "City #1",
+        "state": "State #1",
+        "country": "Country #1",
+        "email": "E-mail #1",
+        "site": "Site #1"
+    },
+    {
+        "name": "User #2",
+        "city": "City #3",
+        "state": "State #2",
+        "country": "Country #2",
+        "email": "E-mail #2",
+        "site": "Site #2"
+    },
+    {
+        "name": "User #3",
+        "city": "City #3",
+        "state": "State #3",
+        "country": "Country #3",
+        "email": "E-mail #3",
+        "site": "Site #3"
+    },
+    {
+        "name": "User #4",
+        "city": "City #4",
+        "state": "State #4",
+        "country": "Country #4",
+        "email": "E-mail #4",
+        "site": "Site #4"
+    }
+  ]
+}

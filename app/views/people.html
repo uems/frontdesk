@@ -1,0 +1,65 @@
+<style type="text/css">
+.glyphicon-card {  margin-bottom: 10px;margin-right: 10px;}
+
+small {
+display: block;
+line-height: 1.428571429;
+color: #999;
+}
+
+.custom-search-form{
+    margin-top:5px;
+}
+</style>
+
+<div class="well well-md">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>Pesquisar</h3>
+        <form ng-submit="doSearch()">
+          <div class="input-group custom-search-form">
+            <input type="text" class="form-control" placeholder="Insira parte do código, nome, e-mail ou CPF para pesquisar">
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+            </span>
+          </div><!-- /input-group -->
+        </form>
+      </div>
+    </div>
+</div>
+
+
+<div class="well well-md" ng-repeat="item in items">
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="http://placehold.it/150x200" alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-9">
+            <h4>
+                {{item.name}}</h4>
+            <small><cite title="">{{item.city}}, {{item.state}}, {{item.country}}<i class="glyphicon  glyphicon-card glyphicon-map-marker">
+            </i></cite></small>
+            <p>
+                <i class="glyphicon glyphicon-card glyphicon-envelope"></i>{{item.email}}
+                <br />
+                <i class="glyphicon glyphicon-card glyphicon-globe"></i><a href="{{item.site}}">{{item.site}}</a>
+            <!-- Split button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary">
+                    Ações</button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span><span class="sr-only">Ações</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Ação #1</a></li>
+                    <li><a href="#">Ação #2</a></li>
+                    <li><a href="#">Ação #3</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Ação #4</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

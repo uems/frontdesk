@@ -8,11 +8,11 @@ angular.module('frontdeskApp', [
 ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+      .when('/people', {
+        templateUrl: 'views/people.html',
+        controller: 'PeopleCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/people'
       });
   });
