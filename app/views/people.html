@@ -14,36 +14,4 @@ color: #999;
 
 <u-person-search></u-person-search>
 
-
-<div class="well well-md" ng-repeat="item in items">
-    <div class="row">
-        <div class="col-sm-3">
-            <img src="http://placehold.it/150x200" alt="" class="img-rounded img-responsive" />
-        </div>
-        <div class="col-sm-9">
-            <h4>
-                {{item.name}}</h4>
-            <small><cite title="">{{item.city}}, {{item.state}}, {{item.country}}<i class="glyphicon  glyphicon-card glyphicon-map-marker">
-            </i></cite></small>
-            <p>
-                <i class="glyphicon glyphicon-card glyphicon-envelope"></i>{{item.email}}
-                <br />
-                <i class="glyphicon glyphicon-card glyphicon-globe"></i><a href="{{item.site}}">{{item.site}}</a>
-            <!-- Split button -->
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary">
-                    Ações</button>
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span><span class="sr-only">Ações</span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Ação #1</a></li>
-                    <li><a href="#">Ação #2</a></li>
-                    <li><a href="#">Ação #3</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Ação #4</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<u-person-listing ng-repeat="person in people" person="person"></u-person-listing>

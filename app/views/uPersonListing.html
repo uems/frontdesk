@@ -1,0 +1,32 @@
+<div class="well well-md">
+  <div class="row">
+    <div class="col-sm-3">
+      <img src="http://placehold.it/150x200" alt="" class="img-rounded img-responsive" />
+    </div>
+    <div class="col-sm-9">
+      <h4>
+        {{person.name}}</h4>
+      <small><cite title="">{{person.city}}, {{person.state}}, {{person.country}}<i class="glyphicon  glyphicon-card glyphicon-map-marker">
+      </i></cite></small>
+      <p>
+      <i class="glyphicon glyphicon-card glyphicon-envelope"></i>{{person.email}}
+      <br />
+      <i class="glyphicon glyphicon-card glyphicon-globe"></i><a href="{{person.site}}">{{person.site}}</a>
+      <!-- Split button -->
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary">
+          Ações</button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span><span class="sr-only">Ações</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Ação #1</a></li>
+          <li><a href="#">Ação #2</a></li>
+          <li><a href="#">Ação #3</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Ação #4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
