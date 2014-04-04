@@ -12,23 +12,7 @@ color: #999;
 }
 </style>
 
-<div class="well well-md">
-    <div class="row">
-      <div class="col-sm-12">
-        <h3>Pesquisar</h3>
-        <form ng-submit="doSearch()">
-          <div class="input-group custom-search-form">
-            <input type="text" class="form-control" placeholder="Insira parte do código, nome, e-mail ou CPF para pesquisar">
-            <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-            </span>
-          </div><!-- /input-group -->
-        </form>
-      </div>
-    </div>
-</div>
+<u-person-search></u-person-search>
 
 
 <div class="well well-md" ng-repeat="item in items">
