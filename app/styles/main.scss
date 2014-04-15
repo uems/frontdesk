@@ -89,3 +89,27 @@ body {
         border-bottom: 0;
     }
 }
+
+// specific styles for the people's cards
+.glyphicon-card {  margin-bottom: 10px;margin-right: 10px;}
+
+.card {
+    color:white;
+}
+
+.card a {
+    color:white;
+    text-decoration:underline; 
+}
+
+.card-green {
+    background-color:#47a447;
+}
+
+.card-red {
+    background-color:#d2322d;
+}
+
+.card-brown {
+    background-color:#ed9c28;
+}
