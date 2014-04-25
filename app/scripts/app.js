@@ -1,18 +1,7 @@
 'use strict';
 
-angular.module('frontdeskApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute'
-])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/people', {
-        templateUrl: 'views/people.html',
-        controller: 'PeopleCtrl'
-      })
-      .otherwise({
-        redirectTo: '/people'
-      });
+angular
+  .module('frontdeskApp', [ 'ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'ui.router' ])
+  .config(function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/");
   });
