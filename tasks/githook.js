@@ -3,7 +3,7 @@
  **/
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var config = require('./config/config');
+var config = require('./config');
 var fs = require('fs');
 var q = require('q');
 
