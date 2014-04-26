@@ -18,7 +18,11 @@ function streamStylesheets() {
     gulp.src(paths.stylesheets),
     plugins.bowerFiles().pipe(plugins.ignore.exclude('**/*.js'))
   ).pipe(
-    plugins.sass({ errLogToConsole: !plugins.util.env.production, sourceComments: 'map' })
+    plugins.sass({
+      errLogToConsole: !plugins.util.env.production,
+      includePaths: [ './app' ],
+      sourceComments: 'map'
+    })
   );
 
   if (plugins.util.env.production) {
