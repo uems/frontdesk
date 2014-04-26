@@ -1,0 +1,17 @@
+<header>
+  <form action>
+    <input ng-model="query" type="text"
+           ui-keypress="{ 13: 'search($event)' }"
+           placeholder="digite o critério de busca..."
+           autofocus=1 />
+  </form>
+</header>
+<main>
+  <ul>
+    <li ng-repeat="person in results">
+      <img gravatar-src="person.email" gravatar-size="60">
+      <header>{{ person.name }}</header>
+
+    </li>
+  </ul>
+</main>

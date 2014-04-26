@@ -18,6 +18,13 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.16"
+    "angular": "~1.2.16",
+    "angular-ui-router": "~0.2.10",
+    "angular-resource": "~1.2.16",
+    "angular-gravatar": "~0.1.4",
+    "angular-ui-utils": "bower-keypress"
+  },
+  "resolutions": {
+    "angular": "1.2.6"
   }
 }

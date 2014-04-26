@@ -1,0 +1,41 @@
+$header-height: 3rem;
+
+body>header {
+  width: 100%;
+  height: $header-height;
+  position: fixed;
+  background: lightgray;
+
+  form {
+    margin: 0 5%;
+
+    input {
+      font-size: xx-large;
+      font-weight: bolder;
+      width: 100%;
+    }
+  }
+}
+body>main {
+  margin-top: $header-height;
+
+  ul {
+    li {
+      margin: 1rem;
+      float: left;
+      width: 30rem;
+      background: green;
+      list-style: none;
+
+      header {
+        font-size: x-large;
+        text-overflow: hidden;
+        white-space: nowrap;
+      }
+
+      img {
+        float: left;
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@ gulp.task('serve', ['build'], function () {
   connect.server({
     livereload : !gutil.env.production,
     root       : paths.dist,
-    port       : 4000
+    port       : 5000
   });
 
   if (!gutil.env.production) {
