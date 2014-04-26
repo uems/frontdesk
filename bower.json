@@ -25,6 +25,7 @@
     "angular-ui-utils": "bower-keypress"
   },
   "resolutions": {
-    "angular": "1.2.6"
+    "angular": "1.2.6",
+    "angular-ui-utils": "bower"
   }
 }
