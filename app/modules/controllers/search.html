@@ -8,12 +8,21 @@
 </header>
 <main>
   <ul>
-    <li ng-repeat="person in results">
-      <img gravatar-src="person.email" gravatar-size="60">
-      <header>{{ person.name }}</header>
-      <p>{{ person.email }}</p>
-      <p>{{ person.document }}</p>
+    <li ng-repeat="person in results"
+        class="{{ person.tickets[0].status }}"
+        ui-sref="detail({{person.id}})">
+      <figure>
+        <figcaption>P-{{ person.id }}</figcaption>
+        <img gravatar-src="person.email" gravatar-size="100">
+      </figure>
 
+      <header ng-class="{ 'empty': !person.name }">{{ person.name || 'sem nome' }}</header>
+
+      <p ng-class="{ 'empty': !person.email }"   >{{ person.email    || 'sem email' }}</p>
+      <p ng-class="{ 'empty': !person.document }">{{ person.document || 'sem documento' }}</p>
+
+      <p ng-show="person.tickets[0].status == 'confirmed'">entrada autorizada</p>
     </li>
   </ul>
+  <br class="clear" />
 </main>

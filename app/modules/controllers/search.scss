@@ -7,6 +7,7 @@ body>header {
   height: $header-height;
   position: fixed;
   background: lightgray;
+  z-index: 2;
 
   form {
     margin: 0 5%;
@@ -19,33 +20,88 @@ body>header {
   }
 }
 body>main {
-  margin-top: $header-height;
+  position: absolute;
+  top: $header-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
 
   ul {
+    width: auto;
+    margin: 0 5%;
+    padding: 0;
+    position: relative;
+
     li {
       @include border-radius(10px);
       margin: 0.4rem;
       float: left;
-      width: 45%;
-      background: lightgreen;
+      width: 47%;
+      background: lightgray;
       list-style: none;
+      position: relative;
 
-      p {
-        margin: 0;
+      &.confirmed {
+        background: lightgreen;
+      }
+      &.none {
+        background: lightpink;
+      }
+      &:hover {
+        box-shadow: 0px 0px 6pt 6pt orange;
+      }
+
+
+      .empty {
+        font-style: italic;
+        color: gray;
       }
 
       header {
-        margin: 0;
-        padding: 0;
+        width: 66%;
+        height: 1.3rem;
+        margin: 0.2rem 0;
         font-size: large;
         font-weight: bold;
-        text-overflow: hidden;
+        overflow: hidden;
         white-space: nowrap;
+
+        &:hover {
+          white-space: normal;
+        }
       }
 
-      img {
+      figure {
+        margin: 0 0.5rem 0 0;
+        padding: 0;
         float: left;
+        width: 14%;
+
+        figcaption {
+          @include border-top-left-radius(10px);
+
+          color: white;
+          background: gray;
+          font-family: "Courier New";
+          text-align: center;
+          width: 100%;
+          display: inline-block;
+        }
+
+        img {
+          @include border-bottom-left-radius(10px);
+          width: 100%;
+        }
       }
+
+      p {
+        width: 50%;
+        float: left;
+        margin: 0;
+        padding: 0;
+      }
+
     }
   }
 }

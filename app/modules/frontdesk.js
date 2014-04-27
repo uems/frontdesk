@@ -15,6 +15,7 @@ angular
   })
   .config(function(gravatarServiceProvider) {
     gravatarServiceProvider.defaults = {
-      'default': 'mm'
+      'default': 'identicon',
+      'rating': 'pg'
     };
   });
