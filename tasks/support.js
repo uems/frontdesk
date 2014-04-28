@@ -23,7 +23,7 @@ function streamStylesheets() {
   };
 
   self.vendor = function() {
-    return plugins.bowerFiles({ debugging: true })
+    return plugins.bowerFiles()
                   .pipe(plugins.ignore.exclude('**/*.js'))
                   .pipe(plugins.sass(sassParms));
   };
