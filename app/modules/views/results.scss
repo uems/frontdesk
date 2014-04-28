@@ -1,8 +1,9 @@
 @import 'modules/shared';
 
 main.search {
+  @include in-out(Left,Left);
   padding-top: 1rem;
-  
+
   ul {
     width: auto;
     margin: 0 5%;
@@ -19,6 +20,7 @@ main.search {
       list-style: none;
       position: relative;
       box-shadow: 0px 0px 2px 2px lightgray;
+      height: 6rem;
 
       &.confirmed {
         background: lightgreen;
@@ -35,7 +37,7 @@ main.search {
         color: gray;
       }
 
-      header {
+      h1 {
         width: 66%;
         height: 1.3rem;
         margin: 0.2rem 0;
@@ -60,11 +62,11 @@ main.search {
 
           color: white;
           background: gray;
-          font-size: small;
           font-family: "Courier New";
           text-align: center;
           width: 100%;
           display: inline-block;
+          padding: 0.2rem 0;
         }
 
         img {

@@ -47,6 +47,7 @@ angular
       .state('detail', {
         url: '^/person/:xid',
         views: {
+          header: { controller: 'PersonCtrl', template: '<button ng-click="back()">voltar</button>' },
           main:   { controller: 'PersonCtrl', templateUrl: 'modules/views/person.html' }
         }
       });

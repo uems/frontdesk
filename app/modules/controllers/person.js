@@ -8,7 +8,11 @@ angular
     'ui.router',
     'ui.gravatar',
     'ui.keypress',
+    'ngAnimate'
   ])
   .controller('PersonCtrl', function($scope, $window, $stateParams, People) {
+    $scope.back = function() {
+      $window.history.back();
+    };
     $scope.person = People.get({xid: $stateParams.xid});
   });

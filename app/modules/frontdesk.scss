@@ -6,6 +6,7 @@ body {
   padding: 0;
 
   &>header {
+    box-shadow: 0 0 3px 3px gray;
     width: 100%;
     height: $header-height;
     position: fixed;
