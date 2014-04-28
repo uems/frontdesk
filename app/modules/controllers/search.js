@@ -1,23 +1,17 @@
 'use strict';
 
 angular
-  .module('fd.search',['ui.router', 'ngResource'])
-  .controller('SearchCtrl', function($scope, $resource) {
-    $scope.query = 'Felipe';
-    $scope.results = [];
+  .module('fd.controllers.search', [
+    'fd.services.people',
+    'ui.router',
+    'ui.gravatar',
+    'ui.keypress',
+  ])
+  .controller('SearchCtrl', function($scope, $state, $stateParams, People) {
+    $scope.query = $stateParams.query;
+    $scope.results = People.query({ q: $scope.query });
 
-    $scope.search = function() {
-      console.log($scope);
-      $scope.results = $resource('http://localhost:3000/search/'+$scope.query).query();
+    $scope.doSearch = function() {
+      $state.go('search', { query: $scope.query });
     };
-    
-    $scope.search();
-  })
-  .config(function($stateProvider) {
-    $stateProvider
-      .state('search', {
-        url: '^/',
-        templateUrl: 'modules/controllers/search.html',
-        controller: 'SearchCtrl'
-      });
   });

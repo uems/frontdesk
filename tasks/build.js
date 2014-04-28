@@ -3,14 +3,13 @@
 var gulp = require('gulp');
 var all = require('./support').streams;
 var paths = require('./support').paths;
-var _ = require('underscore');
 
 function fdInject(stream, ext, namespace) {
   function debugInject(file) {
     console.log(namespace, ext, file.path);
   }
   var inject = require('gulp-inject');
-  stream.on('data', debugInject)
+  stream.on('data', debugInject);
   return inject(stream, {
     ignorePath: [ '/app/modules', 'app/bower_components', '/dist/public' ],
     addPrefix: '/public',
@@ -21,7 +20,7 @@ function fdInject(stream, ext, namespace) {
 // Stylesheets =================================================================
 
 gulp.task('build:stylesheets', function () {
-  return all.stylesheets().pipe(gulp.dest(paths.dist + '/public'));
+  return all.stylesheets.all().pipe(gulp.dest(paths.dist + '/public'));
 });
 
 // Javascripts =================================================================
@@ -40,7 +39,8 @@ gulp.task('build:javascripts:templates', function () {
 
 gulp.task('build:inject:index', function () {
   return gulp.src(paths.index)
-    .pipe(fdInject(all.stylesheets(), 'css', 'custom'))
+    .pipe(fdInject(all.stylesheets.vendor(), 'css', 'vendor'))
+    .pipe(fdInject(all.stylesheets.custom(), 'css', 'custom'))
     .pipe(fdInject(all.javascripts.vendor(), 'js', 'vendor'))
     .pipe(fdInject(all.javascripts.custom(), 'js', 'custom'))
     .pipe(fdInject(all.templates(), 'js', 'templates'))

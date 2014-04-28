@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title ng-bind="pageTitle">Loading...</title>
     <script src='config.js'></script>
+    <!-- inject:vendor:css -->
+    <!-- endinject -->
     <!-- inject:custom:css -->
     <!-- endinject -->
     <!-- inject:vendor:js -->
@@ -13,5 +15,9 @@
     <!-- inject:templates:js -->
     <!-- endinject -->
   </head>
-  <body ui-view>
+  <body ng-controller="FrontdeskCtrl">
+    <header class="{{ state.name }}" ui-view="header">
+    </header>
+    <main   class="{{ state.name }}" ui-view="main">
+    </main>
   </body>

@@ -1,32 +1,8 @@
 @import 'modules/shared';
 
-$header-height: 3rem;
-
-body>header {
-  width: 100%;
-  height: $header-height;
-  position: fixed;
-  background: lightgray;
-  z-index: 2;
-
-  form {
-    margin: 0 5%;
-
-    input {
-      font-size: xx-large;
-      font-weight: bolder;
-      width: 100%;
-    }
-  }
-}
-body>main {
-  position: absolute;
-  top: $header-height;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: auto;
-
+main.search {
+  padding-top: 1rem;
+  
   ul {
     width: auto;
     margin: 0 5%;
@@ -36,11 +12,13 @@ body>main {
     li {
       @include border-radius(10px);
       margin: 0.4rem;
+      padding: 0;
       float: left;
       width: 47%;
       background: lightgray;
       list-style: none;
       position: relative;
+      box-shadow: 0px 0px 2px 2px lightgray;
 
       &.confirmed {
         background: lightgreen;
@@ -49,9 +27,8 @@ body>main {
         background: lightpink;
       }
       &:hover {
-        box-shadow: 0px 0px 6pt 6pt orange;
+        box-shadow: 0px 0px 6px 6px orange;
       }
-
 
       .empty {
         font-style: italic;
@@ -73,7 +50,7 @@ body>main {
       }
 
       figure {
-        margin: 0 0.5rem 0 0;
+        margin: -3px 0.5rem -4px 0;
         padding: 0;
         float: left;
         width: 14%;
@@ -83,6 +60,7 @@ body>main {
 
           color: white;
           background: gray;
+          font-size: small;
           font-family: "Courier New";
           text-align: center;
           width: 100%;

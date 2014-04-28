@@ -1,0 +1,18 @@
+<ul>
+  <li ng-repeat="person in results"
+  ui-sref="detail({ xid: person.xid })"
+  class="{{ person.tickets[0].status }}">
+  <figure>
+    <figcaption>{{ person.source[0]}}-{{ person.id }}</figcaption>
+    <img gravatar-src="person.email" gravatar-size="100">
+  </figure>
+
+  <header ng-class="{ 'empty': !person.name }">{{ person.name || 'sem nome' }}</header>
+
+  <p ng-class="{ 'empty': !person.email }"   >{{ person.email    || 'sem email' }}</p>
+  <p ng-class="{ 'empty': !person.document }">{{ person.document || 'sem documento' }}</p>
+
+  <p ng-show="person.tickets[0].status == 'confirmed'">entrada autorizada</p>
+  </li>
+</ul>
+<br class="clear" />

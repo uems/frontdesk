@@ -14,22 +14,28 @@ var paths = exports.paths = {
 };
 
 function streamStylesheets() {
-  var stream = merge(
-    gulp.src(paths.stylesheets),
-    plugins.bowerFiles().pipe(plugins.ignore.exclude('**/*.js'))
-  ).pipe(
-    plugins.sass({
-      errLogToConsole: !plugins.util.env.production,
-      includePaths: [ './app' ],
-      sourceComments: 'map'
-    })
-  );
+  var self = {};
 
-  if (plugins.util.env.production) {
-    stream = stream.pipe(plugins.concat('cpi.min.css')).pipe(plugins.minifyCss());
-  }
+  var sassParms = {
+    errLogToConsole: !plugins.util.env.production,
+    includePaths: [ './app' ],
+    sourceComments: 'map'
+  };
 
-  return stream;
+  self.vendor = function() {
+    return plugins.bowerFiles({ debugging: true })
+                  .pipe(plugins.ignore.exclude('**/*.js'))
+                  .pipe(plugins.sass(sassParms));
+  };
+  self.custom = function() {
+    return gulp.src(paths.stylesheets)
+               .pipe(plugins.sass(sassParms));
+  };
+  self.all = function() {
+    return merge(self.vendor(), self.custom());
+  };
+
+  return self;
 }
 
 function streamJavascripts() {
@@ -56,7 +62,7 @@ function streamTemplates () {
 }
 
 exports.streams = {
-  stylesheets : streamStylesheets,
+  stylesheets : streamStylesheets(),
   javascripts : streamJavascripts(),
   templates   : streamTemplates,
 };
