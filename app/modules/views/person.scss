@@ -17,12 +17,12 @@ header.detail {
 main.detail {
   @include in-out(Right,Right);
 
-  padding: 0 10rem;
+  padding: 2rem 4rem;
 
   header {
-    border: 2px solid gray;
-    width: 60rem;
-    margin: 1rem;
+    border: 3px solid black;
+    width: 45rem;
+    float: left;
 
     img {
       float: left;
@@ -30,11 +30,59 @@ main.detail {
     }
 
     h1 {
-      font-size: 300%;
+      font-size: 250%;
       padding: 0;
       margin: 0;
     }
+  }
 
+  dl {
+    float: right;
+    width: 23rem;
+    border: 3px solid black;
+    padding: 1rem;
+    margin: 0px;
+
+    dt {
+      &.done:before {
+        position: absolute;
+        margin-left: -1rem;
+        content: "√";
+        color: green;
+      }
+      margin-left: 1.5rem;
+      float: left;
+      clear: both;
+      color: gray;
+      padding: 0.5em 0;
+    }
+    dd {
+      float: right;
+      padding: 0.5em 0;
+    }
+  }
+
+  section {
+    float: left;
+    width: 41rem;
+    padding: 2rem;
+    text-align: center;
+    height: 20rem;
+    border: 3px solid black;
+
+    h1 {
+      font-size: 250%;
+    }
+
+    input {
+      font-size: 350%;
+    }
+
+    small {
+      display: block;
+      text-align: center;
+    }
+    small:before { content: '('; }
+    small:after  { content: ')'; }
   }
 }
-

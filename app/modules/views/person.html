@@ -4,10 +4,39 @@
   <p>{{ person.xid }}</p>
 </header>
 
+<dl>
+  <dt class="done">nome</dt>
+  <dd>{{ person.name }}</dd>
+
+  <dt>cpf</dt>
+  <dd>{{ person.document }}</dd>
+
+  <dt>email</dt>
+  <dd>{{ person.email }}</dd>
+
+  <dt>categoria</dt>
+  <dd>{{ person.tickets[0].type }}</dd>
+
+  <dt>país</dt>
+  <dd>{{ person.country }}</dd>
+
+  <dt>cidade</dt>
+  <dd>{{ person.city }}</dd>
+
+  <dt>situação</dt>
+  <dd>{{ person.tickets[0].status }}</dd>
+
+  <dt>crachá impresso?</dt>
+  <dd>secr. de palestrantes</dd>
+
+  <dt>crachá entregue?</dt>
+  <dd>há 5 minutos</dd>
+</dl>
+
 <section>
-  <header>Dados de Cadastro</header>
+  <h1>Solicite o nome do participante</h1>
 
-  <fieldset>
-  </fieldset>
+  <small>aperte enter</small>
+
+  <input type="text" ng-model="person.name" />
 </section>
-
