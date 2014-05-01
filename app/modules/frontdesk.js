@@ -11,7 +11,8 @@ angular
     'templates',
     'ui.router.compat',
     'ngAnimate',
-    'cfp.hotkeys'
+    'cfp.hotkeys',
+    'chieffancypants.loadingBar'
   ])
   .controller('FrontdeskCtrl', function($scope) {
     $scope.$on('$stateChangeSuccess', function(event, newState) {
