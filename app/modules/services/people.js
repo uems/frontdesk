@@ -6,7 +6,7 @@ angular
     var endpoint = 'http://localhost:2000/people/:xid';
     var paramDefaults = { xid: '@xid' };
     var actions = {
-      'printBadge': { method: 'POST', url: endpoint+'/print-badge' }
+      'printBadge': { method: 'POST', url: endpoint+'/print-badge/:printer' }
     };
     return $resource(endpoint, paramDefaults, actions);
   });

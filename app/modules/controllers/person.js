@@ -22,7 +22,7 @@ angular
         console.log(arguments);
       }
       var xid = $scope.person.xid;
-      People.printBadge({ xid: xid }, {}, handleSuccess, handleError);
+      People.printBadge({ xid: xid, printer: 1 }, {}, handleSuccess, handleError);
     };
     $scope.person = People.get({xid: $stateParams.xid});
   });
