@@ -14,5 +14,15 @@ angular
     $scope.back = function() {
       $window.history.back();
     };
+    $scope.printBadge = function() {
+      function handleError(response) {
+        console.log(response.data);
+      }
+      function handleSuccess() {
+        console.log(arguments);
+      }
+      var xid = $scope.person.xid;
+      People.printBadge({ xid: xid }, {}, handleSuccess, handleError);
+    };
     $scope.person = People.get({xid: $stateParams.xid});
   });

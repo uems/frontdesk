@@ -3,6 +3,10 @@
 angular
   .module('fd.services.people', [ 'ngResource' ])
   .service('People', function($resource) {
-    var endpoint = 'http://localhost:3000/people/:xid';
-    return $resource(endpoint);
+    var endpoint = 'http://localhost:2000/people/:xid';
+    var paramDefaults = { xid: '@xid' };
+    var actions = {
+      'printBadge': { method: 'POST', url: endpoint+'/print-badge' }
+    };
+    return $resource(endpoint, paramDefaults, actions);
   });

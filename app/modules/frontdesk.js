@@ -17,7 +17,6 @@ angular
   .controller('FrontdeskCtrl', function($scope) {
     $scope.$on('$stateChangeSuccess', function(event, newState) {
       $scope.state = newState;
-      console.log($scope.state);
     });
   })
   .config(function($urlRouterProvider) {
