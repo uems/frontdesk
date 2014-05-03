@@ -11,17 +11,18 @@ angular
     'fd.steps.fillName',
     'fd.steps.fillEmail',
     'fd.steps.fillDocument',
+    'fd.steps.fillBadge',
+    'fd.steps.printBadge',
     'ui.router',
     'templates',
     'ui.router.compat',
     'ngAnimate',
     'cfp.hotkeys',
-    'chieffancypants.loadingBar'
   ])
   .controller('FrontdeskCtrl', function($scope) {
     $scope.$on('$stateChangeSuccess', function(event, newState) {
-      $scope.topState  = newState.name.split('.')[0];
-      $scope.fullState = newState.name;
+      $scope.topState = newState.name.split('.')[0];
+      $scope.state    = newState;
     });
   })
   .config(function($urlRouterProvider) {
