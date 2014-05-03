@@ -74,6 +74,12 @@ main.person {
         max-width: 15em;
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:hover {
+          word-wrap: break-word;
+          white-space: normal;
+        }
 
         &.empty {
           font-style: italic;
