@@ -14,10 +14,6 @@ angular
     People.get(locator).$promise.then(function(person) {
       focus('badgeName');
 
-      $scope.commitBadge = function() {
-        People.setBadge(locator, $scope.step, function() { $scope.reload('person'); });
-      };
-
       $scope.step = {
         xid: $stateParams.xid,
         badgeName: person.badgeName || person.name,
