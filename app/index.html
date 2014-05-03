@@ -16,8 +16,11 @@
     <!-- endinject -->
   </head>
   <body ng-controller="FrontdeskCtrl">
-    <header class="{{ state.name }}" ui-view="header">
+    <header class="{{ topState }}" ui-view="header">
     </header>
-    <main   class="{{ state.name }}" ui-view="main">
+    <main   class="{{ topState }}" ui-view="main">
     </main>
+    <footer>
+      {{ fullState }}
+    </footer>
   </body>

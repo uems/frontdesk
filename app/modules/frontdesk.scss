@@ -24,5 +24,13 @@ body {
     width: auto;
   }
 
+  &>footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: white;
+    background: gray;
+    padding: 1rem;
+  }
 
 }

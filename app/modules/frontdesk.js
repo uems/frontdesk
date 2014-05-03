@@ -16,7 +16,8 @@ angular
   ])
   .controller('FrontdeskCtrl', function($scope) {
     $scope.$on('$stateChangeSuccess', function(event, newState) {
-      $scope.state = newState;
+      $scope.topState  = newState.name.split('.')[0];
+      $scope.fullState = newState.name;
     });
   })
   .config(function($urlRouterProvider) {
