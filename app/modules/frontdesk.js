@@ -14,10 +14,9 @@ angular
     'fd.steps.fillBadgeName',
     'fd.steps.printBadge',
     'ui.router',
-    'templates',
     'ui.router.compat',
-    'ngAnimate',
-    'cfp.hotkeys',
+    'templates',
+    'ngAnimate'
   ])
   .controller('FrontdeskCtrl', function($scope) {
     $scope.$on('$stateChangeSuccess', function(event, newState) {
