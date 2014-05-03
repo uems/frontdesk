@@ -23,7 +23,7 @@ angular
         badgeName: person.badgeName || person.name,
       };
 
-      $scope.commitBadgeName = lazyCommit(People.setBadgeName, locator, 'person.fill_badge_corp', person, $scope, 'badge_name');
+      $scope.commitBadgeName = lazyCommit(People.setBadgeName, locator, 'person.fill_badge_corp', person, $scope, 'badgeName');
     });
   })
   .config(function($stateProvider) {
