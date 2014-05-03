@@ -1,4 +1,12 @@
 .fill {
+  &.loading {
+    opacity: .6;
+
+    input {
+      background: url(/ajax-loader.gif) no-repeat right;
+    }
+  }
+
   text-align: center;
 
   h3 {
