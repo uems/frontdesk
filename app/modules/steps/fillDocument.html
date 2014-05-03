@@ -9,6 +9,7 @@
 
   <input type="text"
          ng-model="step.document"
-         ui-keypress="{ 13: 'commitDocument($event)' }"
+         ui-mask="999.999.999-99"
+         ui-keypress="{ 13: 'commitDocument($event)', 'esc': 'cancel($event)' }"
          focus-on="document" />
 </form>

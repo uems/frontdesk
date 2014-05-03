@@ -7,6 +7,7 @@ angular
     'fd.factories.lazyCommit',
     'ui.router',
     'ui.keypress',
+    'ui.mask'
   ])
   .controller('FillDocumentCtrl', function($scope, $stateParams, $state, People, focus, lazyCommit) {
     var locator = { xid: $stateParams.xid };

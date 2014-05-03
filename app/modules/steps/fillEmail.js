@@ -19,6 +19,8 @@ angular
         email: person.email
       };
 
+      $scope.cancel = function() { $scope.step = person.email; };
+
       $scope.commitEmail = lazyCommit(People.setEmail, locator, 'person.fill_document', person, $scope, 'email');
     });
   })
