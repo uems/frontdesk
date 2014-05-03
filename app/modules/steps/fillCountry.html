@@ -1,0 +1,24 @@
+<form class="fill fill_country">
+  <h3>
+    Qual é o país do participante?
+  </h3>
+  <h4>
+    use &#8593; e &#8595; para trocar de país, enter para selecionar
+  </h4>
+
+  <button type="button"
+          ng-repeat="country in countries"
+          ng-click="selectCountry($event, $index)"
+          ui-keydown="{ 'up': 'focusPrev($index)', 'down': 'focusNext($index)'}"
+          focus-on="country-{{ $index }}">
+    {{ country }}
+  </button>
+  <input type="text"
+         ng-model="enteredCountry"
+         ui-keydown="{ 'up': 'focusPrev(countries.length)', 'enter': 'selectCountry($event, countries.length)' }"
+         focus-on="country-{{ countries.length }}"
+         placeholder="outro país..."/>
+
+  <br/>
+
+</form>

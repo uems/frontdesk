@@ -10,6 +10,7 @@ angular
     'fd.controllers.person',
     'fd.steps.fillName',
     'fd.steps.fillEmail',
+    'fd.steps.fillCountry',
     'fd.steps.fillDocument',
     'fd.steps.fillBadgeName',
     'fd.steps.fillBadgeCorp',

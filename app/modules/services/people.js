@@ -11,7 +11,8 @@ angular
       'setEmail':     { method: 'POST', url: endpoint+'/set-email' },
       'setDocument':  { method: 'POST', url: endpoint+'/set-document' },
       'setBadgeName': { method: 'POST', url: endpoint+'/set-badge-name' },
-      'setBadgeCorp': { method: 'POST', url: endpoint+'/set-badge-corp' }
+      'setBadgeCorp': { method: 'POST', url: endpoint+'/set-badge-corp' },
+      'setCountry':   { method: 'POST', url: endpoint+'/set-country' }
     };
     return $resource(endpoint, paramDefaults, actions);
   });

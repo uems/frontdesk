@@ -20,4 +20,26 @@
       width: 40rem;
     }
   }
+
+  .fill_country {
+    input, button {
+      font-size: xx-large;
+      width: 20rem;
+      margin: 0.3rem 2rem;
+      opacity: .5;
+      text-align: center;
+
+      &:focus {
+        opacity: 1;
+        &:before {
+          content: ">";
+          position: absolute;
+          margin-left: -2rem;
+          font-size: xx-large;
+          color: blue;
+        }
+      }
+
+    }
+  }
 }
