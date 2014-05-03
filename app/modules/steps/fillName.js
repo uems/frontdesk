@@ -14,7 +14,6 @@ angular
     People.get(locator).$promise.then(function(person) {
       focus('name');
 
-
       $scope.step = {
         xid: $stateParams.xid,
         name: person.name

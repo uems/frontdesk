@@ -8,7 +8,7 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('FillEmailCtrl', function($scope, $stateParams, $state, People, focus, lazyCommit) {
+  .controller('FillEmailCtrl', function($scope, $stateParams, People, focus, lazyCommit) {
     var locator = { xid: $stateParams.xid };
 
    People.get(locator).$promise.then(function(person) {
