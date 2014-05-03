@@ -1,4 +1,4 @@
-.fill {
+[ui-view=step] {
   &.loading {
     opacity: .6;
 
@@ -7,14 +7,17 @@
     }
   }
 
-  text-align: center;
+  .fill {
 
-  h3 {
-    font-size: x-large;
-  }
+    text-align: center;
 
-  input {
-    font-size: xx-large;
-    width: 40rem;
+    h3 {
+      font-size: x-large;
+    }
+
+    input {
+      font-size: xx-large;
+      width: 40rem;
+    }
   }
 }
