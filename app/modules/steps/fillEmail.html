@@ -1,0 +1,10 @@
+<form class="fill fill_email">
+  <h3>
+    solicite o e-mail do participante!
+  </h3>
+
+  <input type="text"
+         ng-model="step.email"
+         ui-keypress="{ 13: 'commitEmail($event)' }"
+         focus-on="email" />
+</form>

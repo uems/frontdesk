@@ -1,20 +1,6 @@
 @import 'modules/shared';
 
-header.detail {
-  button {
-    width: 10rem;
-    height: 100%;
-    background: green;
-    color: white;
-    font-size: xx-large;
-
-    &:before {
-      content: '«'
-    }
-  }
-}
-
-main.detail {
+main.person {
   @include in-out(Right,Right);
 
   padding: 2rem 4rem;
@@ -24,15 +10,23 @@ main.detail {
     width: 45rem;
     float: left;
 
+    button {
+      float: right;
+    }
+
     img {
       float: left;
       margin-right: 1rem;
     }
 
     h1 {
-      font-size: 250%;
+      font-size: 200%;
       padding: 0;
       margin: 0;
+    }
+    p {
+      margin: 0;
+      padding: 0;
     }
   }
 

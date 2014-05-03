@@ -1,0 +1,15 @@
+header.person {
+  button {
+    margin-top: 1.5rem;
+    height: 100%;
+    background: green;
+    color: white;
+    font-size: xx-large;
+
+    &:before {
+      content: '«'
+    }
+  }
+}
+
+

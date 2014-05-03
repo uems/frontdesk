@@ -2,7 +2,6 @@
   <img gravatar-src="person.email" gravatar-size="100">
   <h1>{{ person.name }}</h1>
   <p>{{ person.xid }}</p>
-  <button ng-click="printBadge()">imprimir crachá</button>
 </header>
 
 <dl>
@@ -34,10 +33,5 @@
   <dd>há 5 minutos</dd>
 </dl>
 
-<section>
-  <h1>Solicite o nome do participante</h1>
-
-  <small>aperte enter</small>
-
-  <textarea ng-model="person.name" maxlength="60" />
+<section ui-view="step">
 </section>

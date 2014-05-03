@@ -10,19 +10,16 @@ angular
     'ui.keypress',
     'ngAnimate'
   ])
-  .controller('PersonCtrl', function($scope, $window, $stateParams, People) {
-    $scope.back = function() {
-      $window.history.back();
+  .controller('PersonMainCtrl', function($scope, $stateParams, $state, People) {
+    $scope.fastForward = function(nextState) {
+      $state.go(nextState);
     };
-    $scope.printBadge = function() {
-      function handleError(response) {
-        console.log(response.data);
-      }
-      function handleSuccess() {
-        console.log(arguments);
-      }
-      var xid = $scope.person.xid;
-      People.printBadge({ xid: xid, printer: 1 }, {}, handleSuccess, handleError);
+    $scope.reload = function(nextState) {
+      People.get({xid: $stateParams.xid}).$promise.then(function(person) {
+        $scope.person = person;
+        $state.go(nextState || 'person.fill_name');
+      });
     };
-    $scope.person = People.get({xid: $stateParams.xid});
+
+    $scope.reload();
   });

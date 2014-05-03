@@ -1,6 +1,6 @@
 <ul>
   <li ng-repeat="person in results"
-  ui-sref="detail({ xid: person.xid })"
+  ui-sref="person({ xid: person.xid })"
   class="{{ person.tickets[0].status }}">
   <figure>
     <figcaption>{{ person.source[0]}}{{ person.id }}</figcaption>

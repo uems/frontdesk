@@ -4,9 +4,13 @@ angular.module('templates', []);
 
 angular
   .module('fd', [
+    'fd.controllers.nav',
     'fd.controllers.home',
     'fd.controllers.search',
     'fd.controllers.person',
+    'fd.steps.fillName',
+    'fd.steps.fillEmail',
+    'fd.steps.fillDocument',
     'ui.router',
     'templates',
     'ui.router.compat',
@@ -45,11 +49,11 @@ angular
           main:   { controller: 'SearchCtrl', templateUrl: 'modules/views/results.html' }
         },
       })
-      .state('detail', {
+      .state('person', {
         url: '^/person/:xid',
         views: {
-          header: { controller: 'PersonCtrl', template: '<button ng-click="back()">voltar</button>' },
-          main:   { controller: 'PersonCtrl', templateUrl: 'modules/views/person.html' }
+          header: { controller: 'NavCtrl',       templateUrl: 'modules/views/nav.html' },
+          main:   { controller: 'PersonMainCtrl',templateUrl: 'modules/views/person.html' }
         }
       });
   });
