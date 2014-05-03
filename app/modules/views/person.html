@@ -10,24 +10,24 @@
       <th colspan="2">dados básicos</th>
     </tr>
     <tr>
-      <th class="done">nome</th>
-      <td>{{ person.name }}</td>
+      <th ng-class="{ done:   person.name }"    >nome</th>
+      <td ng-class="{ empty: !person.name }"    >{{ person.name     || 'não informado' }}</td>
     </tr>
     <tr>
-      <th>cpf</th>
-      <td>{{ person.document }}</td>
+      <th ng-class="{ done:   person.document }">cpf</th>
+      <td ng-class="{ empty: !person.document }">{{ person.document || 'não informado'}}</td>
     </tr>
     <tr>
-      <th>email</th>
-      <td>{{ person.email }}</td>
+      <th ng-class="{ done:   person.email }"   >email</th>
+      <td ng-class="{ empty: !person.email }"   >{{ person.email    || 'não informado' }}</td>
     </tr>
     <tr>
-      <th>país</th>
-      <td>{{ person.country }}</td>
+      <th ng-class="{ done:   person.country }" >país</th>
+      <td ng-class="{ empty: !person.country }" >{{ person.country  || 'não informado' }}</td>
     </tr>
-    <tr>
-      <th>cidade</th>
-      <td>{{ person.city }}</td>
+    <tr ng-hide="isForeign">
+      <th ng-class="{ done:   person.city }"    >cidade</th>
+      <td ng-class="{ empty: !person.city }"    >{{ person.city || 'não informado' }}</td>
     </tr>
 
   </tbody>
@@ -36,16 +36,16 @@
       <th colspan="2">ingresso</th>
     </tr>
     <tr>
-      <th>categoria</th>
-      <td>{{ ticket.grants }}</td>
+      <th ng-class="{ done:   ticket.grants }">categoria</th>
+      <td ng-class="{ empty: !ticket.grants }">{{ ticket.grants }}</td>
     </tr>
     <tr>
-      <th>forma</th>
-      <td>{{ ticket.method }}</td>
+      <th ng-class="{ done:   ticket.method }">forma</th>
+      <td ng-class="{ empty: !ticket.method }">{{ ticket.method }}</td>
     </tr>
     <tr>
-      <th>situação</th>
-      <td>{{ ticket.status }}</td>
+      <th ng-class="{ done:   hasValidTicket }">situação</th>
+      <td ng-class="{ empty: !hasValidTicket }">{{ ticket.status }}</td>
     </tr>
   </tbody>
 

@@ -71,6 +71,11 @@ main.person {
         border-bottom: 1px dotted lightgray;
         text-align: right;
         width: 15em;
+
+        &.empty {
+          font-style: italic;
+          color: lightcoral;
+        }
       }
     }
   }
