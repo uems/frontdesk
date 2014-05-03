@@ -12,6 +12,7 @@ angular
     'fd.steps.fillEmail',
     'fd.steps.fillDocument',
     'fd.steps.fillBadgeName',
+    'fd.steps.fillBadgeCorp',
     'fd.steps.printBadge',
     'ui.router',
     'ui.router.compat',

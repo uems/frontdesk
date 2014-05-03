@@ -10,7 +10,8 @@ angular
       'setName':      { method: 'POST', url: endpoint+'/set-name' },
       'setEmail':     { method: 'POST', url: endpoint+'/set-email' },
       'setDocument':  { method: 'POST', url: endpoint+'/set-document' },
-      'setBadgeName': { method: 'POST', url: endpoint+'/set-badge-name' }
+      'setBadgeName': { method: 'POST', url: endpoint+'/set-badge-name' },
+      'setBadgeCorp': { method: 'POST', url: endpoint+'/set-badge-corp' }
     };
     return $resource(endpoint, paramDefaults, actions);
   });
