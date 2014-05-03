@@ -11,7 +11,7 @@ angular
     'fd.steps.fillName',
     'fd.steps.fillEmail',
     'fd.steps.fillDocument',
-    'fd.steps.fillBadge',
+    'fd.steps.fillBadgeName',
     'fd.steps.printBadge',
     'ui.router',
     'templates',
