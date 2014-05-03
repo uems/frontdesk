@@ -1,6 +1,7 @@
 <ul>
-  <li ng-repeat="person in results"
-  ui-sref="person({ xid: person.xid })"
+  <li ng-repeat="person in results | orderBy:validness:true"
+      ng-class="{ valid: person.validTickets.length, pending: person.pendingTickets.length }"
+      ui-sref="person({ xid: person.xid })"
   class="{{ person.tickets[0].status }}">
   <figure>
     <figcaption>{{ person.source[0]}}{{ person.id }}</figcaption>
@@ -11,8 +12,6 @@
 
   <p ng-class="{ 'empty': !person.email }"   >{{ person.email    || 'sem email' }}</p>
   <p ng-class="{ 'empty': !person.document }">{{ person.document || 'sem documento' }}</p>
-
-  <p>{{ person.tickets[0].type }}</p>
 
   <p ng-show="person.tickets[0].status == 'confirmed'">entrada autorizada</p>
   </li>

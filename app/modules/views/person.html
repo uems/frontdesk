@@ -22,10 +22,6 @@
       <td>{{ person.email }}</td>
     </tr>
     <tr>
-      <th>categoria</th>
-      <td>{{ person.tickets[0].type }}</td>
-    </tr>
-    <tr>
       <th>país</th>
       <td>{{ person.country }}</td>
     </tr>
@@ -40,8 +36,16 @@
       <th colspan="2">ingresso</th>
     </tr>
     <tr>
+      <th>categoria</th>
+      <td>{{ ticket.grants }}</td>
+    </tr>
+    <tr>
+      <th>forma</th>
+      <td>{{ ticket.method }}</td>
+    </tr>
+    <tr>
       <th>situação</th>
-      <td>{{ person.tickets[0].status }}</td>
+      <td>{{ ticket.status }}</td>
     </tr>
   </tbody>
 

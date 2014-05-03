@@ -21,11 +21,11 @@ main.search {
       box-shadow: 0px 0px 2px 2px lightgray;
       height: 6rem;
 
-      &.confirmed {
+      &.valid {
         background: lightgreen;
       }
-      &.none {
-        background: lightpink;
+      &.pending {
+        background: lightyellow;
       }
       &:hover {
         box-shadow: 0px 0px 6px 6px orange;
