@@ -1,37 +1,64 @@
-<header>
+<header ng-class="{ loading: !person }">
   <img gravatar-src="person.email" gravatar-size="100">
   <h1>{{ person.name }}</h1>
   <p>{{ person.xid }}</p>
 </header>
 
-<dl>
-  <dt class="done">nome</dt>
-  <dd>{{ person.name }}</dd>
+<table ng-class="{ loading: !person }">
+  <tbody>
+    <tr>
+      <th colspan="2">dados básicos</th>
+    </tr>
+    <tr>
+      <th class="done">nome</th>
+      <td>{{ person.name }}</td>
+    </tr>
+    <tr>
+      <th>cpf</th>
+      <td>{{ person.document }}</td>
+    </tr>
+    <tr>
+      <th>email</th>
+      <td>{{ person.email }}</td>
+    </tr>
+    <tr>
+      <th>categoria</th>
+      <td>{{ person.tickets[0].type }}</td>
+    </tr>
+    <tr>
+      <th>país</th>
+      <td>{{ person.country }}</td>
+    </tr>
+    <tr>
+      <th>cidade</th>
+      <td>{{ person.city }}</td>
+    </tr>
 
-  <dt>cpf</dt>
-  <dd>{{ person.document }}</dd>
+  </tbody>
+  <tbody>
+    <tr>
+      <th colspan="2">ingresso</th>
+    </tr>
+    <tr>
+      <th>situação</th>
+      <td>{{ person.tickets[0].status }}</td>
+    </tr>
+  </tbody>
 
-  <dt>email</dt>
-  <dd>{{ person.email }}</dd>
-
-  <dt>categoria</dt>
-  <dd>{{ person.tickets[0].type }}</dd>
-
-  <dt>país</dt>
-  <dd>{{ person.country }}</dd>
-
-  <dt>cidade</dt>
-  <dd>{{ person.city }}</dd>
-
-  <dt>situação</dt>
-  <dd>{{ person.tickets[0].status }}</dd>
-
-  <dt>crachá impresso?</dt>
-  <dd>secr. de palestrantes</dd>
-
-  <dt>crachá entregue?</dt>
-  <dd>há 5 minutos</dd>
-</dl>
+  <tbody>
+    <tr>
+      <th colspan="2">etiqueta/material</th>
+    </tr>
+    <tr>
+      <th>impresso?</th>
+      <td>secr. de palestrantes</td>
+    </tr>
+    <tr>
+      <th>entregue?</th>
+      <td>há 5 minutos</td>
+    </tr>
+  </tbody>
+</table>
 
 <section ui-view="step" ng-class="{ loading: !step }">
 </section>
