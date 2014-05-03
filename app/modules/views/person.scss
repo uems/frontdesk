@@ -71,6 +71,9 @@ main.person {
         border-bottom: 1px dotted lightgray;
         text-align: right;
         width: 15em;
+        max-width: 15em;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &.empty {
           font-style: italic;
