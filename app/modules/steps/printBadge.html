@@ -1,10 +1,25 @@
-<form class="fill fill_name">
+<form class="fill print_badge">
+  <h2>
+    O crachá abaixo será impresso
+  </h2>
   <h3>
-    solicite o nome do participante!
+    usando a impressora <i>{{ step.printer }}</i>
   </h3>
 
-  <input type="text"
-         ng-model="step.name"
-         ui-keypress="{ 13: 'commitName($event)' }"
-         focus-on="name" />
+  <ul>
+    <li>{{ step.badgeName }}</li>
+    <li>{{ step.badgeCorp }}</li>
+  </ul>
+
+  <button focus-on="print" class="slow"
+          ng-disabled="trying"
+          ui-keydown="{ 'down': 'focusCorrect()' }"
+          ng-click="commitPrint()">
+    imprimir
+  </button>
+  <button focus-on="correct"
+          ui-keydown="{ 'up': 'focusPrint()' }"
+          ng-click="fastForward('person.fill_badge_name')">
+    corrigir crachá
+  </button>
 </form>

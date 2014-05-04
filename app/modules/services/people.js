@@ -4,7 +4,7 @@ angular
   .module('fd.services.people', [ 'ngResource' ])
   .service('People', function($resource) {
     var endpoint = 'http://localhost:2000/people/:xid';
-    var paramDefaults = { xid: '@xid' };
+    var paramDefaults = { xid: '@xid', printer: '@printer' };
     var actions = {
       'printBadge':   { method: 'POST', url: endpoint+'/print-badge/:printer' },
       'setName':      { method: 'POST', url: endpoint+'/set-name' },

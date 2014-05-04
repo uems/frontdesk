@@ -1,3 +1,4 @@
+/* global _ */
 'use strict';
 
 angular
@@ -8,22 +9,35 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('PrintBadgeCtrl', function($scope, $stateParams, $state, People, focus) {
+  .controller('PrintBadgeCtrl', function($scope, $stateParams, People, focus) {
     var locator = { xid: $stateParams.xid };
 
-    People.get(locator).$promise.then(function(person) {
-      focus('name');
+    $scope.focusCorrect = _.partial(focus, 'correct');
+    $scope.focusPrint   = _.partial(focus, 'print');
 
+    $scope.commitPrint = function() {
+      $scope.trying = true;
+      People.printBadge(locator, $scope.step).$promise.then(function() {
+        $scope.trying = false;
+        $scope.reload('person.give_badge');
+      }).catch(function(err) {
+        focus('print');
+        $scope.trying = false;
+        console.log(err.data);
+      });
+    };
+
+    People.get(locator).$promise.then(function(person) {
+      focus('print');
       $scope.step = {
         xid: $stateParams.xid,
+        printer: 1,
         badgeName: person.badgeName,
         badgeCorp: person.badgeCorp
       };
-
-      $scope.printBage = function() {
-        People.printBadge(locator, $scope.step);
-      };
     });
+
+
   })
   .config(function($stateProvider) {
     $stateProvider

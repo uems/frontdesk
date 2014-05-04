@@ -19,7 +19,7 @@ angular
         badgeCorp: person.badgeCorp,
       };
 
-      $scope.commitBadgeCorp = lazyCommit(People.setBadgeCorp, locator, 'person.give_badge', person, $scope, 'badgeCorp');
+      $scope.commitBadgeCorp = lazyCommit(People.setBadgeCorp, locator, 'person.print_badge', person, $scope, 'badgeCorp');
     });
   })
   .config(function($stateProvider) {

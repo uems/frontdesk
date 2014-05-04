@@ -11,6 +11,7 @@ angular
     'ngAnimate'
   ])
   .controller('PersonMainCtrl', function($scope, $stateParams, $state, People) {
+    // FIXME: improve state selection smartness
     $scope.fastForward = function(nextState) {
       $state.go(nextState);
     };
@@ -20,7 +21,7 @@ angular
         $scope.ticket = person.validTickets[0] || person.pendingTickets[0];
         $scope.hasValidTicket = Boolean(person.validTickets.length);
         $scope.isForeign = person.country !== 'Brazil';
-        $state.go(nextState || 'person.fill_country');
+        $state.go(nextState || 'person.print_badge');
       });
     };
 

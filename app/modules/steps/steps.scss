@@ -2,8 +2,15 @@
   &.loading {
     opacity: .6;
 
-    input {
+    input[type=text] {
       background: url(/ajax-loader.gif) no-repeat right;
+    }
+  }
+
+  &.trying {
+    button.slow {
+      background: url(/ajax-loader.gif) no-repeat right center;
+      outline: 0;
     }
   }
 
@@ -15,18 +22,44 @@
       font-size: x-large;
     }
 
-    input {
+    input[type=text] {
       font-size: xx-large;
       width: 40rem;
     }
   }
 
-  .fill_country {
-    input, button {
+  .print_badge {
+    padding: 0;
+    h2, h3 {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      display: inline-block;
+      border: 1px solid black;
+      width: 25rem;
+      margin: 0.5rem 0.2rem;
+      list-style-type: none;
+      font-size: x-large;
+      padding: 0;
+
+      li {
+        height: 2em;
+
+        &:first-child {
+          border-bottom: 1px solid gray;
+        }
+      }
+    }
+  }
+
+  .fill_country, .print_badge {
+    padding: 0 2rem;
+
+    input[type=text], button {
       font-size: xx-large;
       width: 20rem;
       margin: 0.3rem 2rem;
-      opacity: .5;
       text-align: center;
 
       &:focus {
