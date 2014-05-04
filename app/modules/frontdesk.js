@@ -14,6 +14,7 @@ angular
     'fd.steps.fillDocument',
     'fd.steps.fillBadgeName',
     'fd.steps.fillBadgeCorp',
+    'fd.steps.fillCategory',
     'fd.steps.printBadge',
     'fd.steps.giveBadge',
     'ui.router',

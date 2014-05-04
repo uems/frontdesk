@@ -12,7 +12,8 @@ angular
       'setDocument':   { method: 'POST', url: endpoint+'/set-document' },
       'setBadgeName':  { method: 'POST', url: endpoint+'/set-badge-name' },
       'setBadgeCorp':  { method: 'POST', url: endpoint+'/set-badge-corp' },
-      'setCountry':    { method: 'POST', url: endpoint+'/set-country' }
+      'setCountry':    { method: 'POST', url: endpoint+'/set-country' },
+      'setCategory':   { method: 'POST', url: endpoint+'/set-category' }
     };
     return $resource(endpoint, paramDefaults, actions);
   });

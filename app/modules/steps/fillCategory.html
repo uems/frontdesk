@@ -1,0 +1,16 @@
+<form class="fill fill_category">
+  <h3>
+    Qual é a categoria do participante?
+  </h3>
+  <small>
+    use &#8593; e &#8595; para trocar de categoria, enter para selecionar
+  </small>
+
+  <button type="button"
+          ng-repeat="category in categories"
+          ng-click="selectCategory($event, $index)"
+          ui-keydown="{ 'up': 'focusPrev($index)', 'down': 'focusNext($index)'}"
+          focus-on="category-{{ $index }}">
+    {{ category }} - R$ {{ prices[category] }}
+  </button>
+</form>
