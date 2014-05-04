@@ -26,7 +26,7 @@ angular
       focus('category-'+(current-1));
     };
     $scope.focusNext = function(current) {
-      if (current === $scope.countries.length) { return; }
+      if (current === $scope.categories.length) { return; }
       focus('category-'+(current+1));
     };
 

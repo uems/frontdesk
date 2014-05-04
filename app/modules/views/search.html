@@ -1,6 +1,6 @@
 <form action>
   <input ng-model="query" type="text"
-         ui-keypress="{ 13: 'doSearch($event)' }"
+         ui-keypress="{ 'enter': 'doSearch($event)' }"
          placeholder="buscar por... (nome, email, cpf, etc)"
          focus-on='search' />
 </form>

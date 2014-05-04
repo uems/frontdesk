@@ -36,14 +36,14 @@
 
   </tbody>
   <tbody>
-    <tr ng-click="fastForward('person.choose_category')">
+    <tr ng-click="fastForward('person.start_ingresso')">
       <th colspan="2">ingresso</th>
     </tr>
-    <tr ng-click="fastForward('person.choose_category')">
+    <tr ng-click="fastForward('person.fill_category')">
       <th ng-class="{ done:   ticket.grants }">categoria</th>
       <td ng-class="{ empty: !ticket.grants }">{{ ticket.grants }}</td>
     </tr>
-    <tr ng-click="fastForward('person.choose_method')">
+    <tr>
       <th ng-class="{ done:   ticket.method }">forma</th>
       <td ng-class="{ empty: !ticket.method }">{{ ticket.method }}</td>
     </tr>

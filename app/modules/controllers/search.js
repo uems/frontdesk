@@ -12,11 +12,6 @@ angular
   .controller('SearchCtrl', function($scope, $state, $stateParams, People, focus) {
     focus('search');
 
-    if ($stateParams.query) {
-      $scope.query = $stateParams.query;
-      $scope.results = People.query({ q: $scope.query });
-    }
-
     $scope.validness = function(person) {
       return ((person.validTickets.length) * 10) +
              ((person.source === 'greve')  * 1);
@@ -26,4 +21,10 @@ angular
       if (!$scope.query) { return; }
       $state.go('search', { query: $scope.query });
     };
+
+    if ($stateParams.query) {
+      $scope.query = $stateParams.query;
+      $scope.results = People.query({ q: $scope.query });
+    }
+
   });

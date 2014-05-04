@@ -1,9 +1,8 @@
 <ul>
   <li ng-repeat="person in results | orderBy:validness:true"
-      ng-class="{ valid:   person.validTickets.length,
-                  pending: person.pendingTickets.length || person.payableTicket }"
       ui-sref="person({ xid: person.xid })"
-  class="{{ person.tickets[0].status }}">
+      ng-class="{ valid:   person.validTickets.length,
+                  pending: person.pendingTickets.length || person.payableTicket }">
     <figure>
       <figcaption>{{ person.source[0]}}{{ person.id }}</figcaption>
       <img gravatar-src="person.email" gravatar-size="100">
