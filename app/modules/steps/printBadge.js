@@ -1,4 +1,3 @@
-/* global _ */
 'use strict';
 
 angular
@@ -9,35 +8,22 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('PrintBadgeCtrl', function($scope, $stateParams, People, focus) {
-    var locator = { xid: $stateParams.xid };
-
-    $scope.focusCorrect = _.partial(focus, 'correct');
-    $scope.focusPrint   = _.partial(focus, 'print');
-
-    $scope.commitPrint = function() {
-      $scope.trying = true;
-      People.printBadge(locator, $scope.step).$promise.then(function() {
-        $scope.trying = false;
-        $scope.reload('person.give_badge');
-      }).catch(function(err) {
-        focus('print');
-        $scope.trying = false;
-        console.log(err.data);
-      });
+  .controller('PrintBadgeCtrl', function($scope, $stateParams, People) {
+    // FIXME: record printer choice somewhere in the client
+    var locator = {
+      xid: $stateParams.xid,
+      printer: 1
     };
 
-    People.get(locator).$promise.then(function(person) {
-      focus('print');
-      $scope.step = {
-        xid: $stateParams.xid,
-        printer: 1,
-        badgeName: person.badgeName,
-        badgeCorp: person.badgeCorp
-      };
-    });
+    function success(result) {
+      console.log(result.result);
+      $scope.fastForward('person.give_badge');
+    }
+    function failure(err) {
+      console.log(err);
+    }
 
-
+    People.printBoth(locator, success, failure);
   })
   .config(function($stateProvider) {
     $stateProvider

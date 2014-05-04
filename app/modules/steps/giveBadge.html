@@ -1,0 +1,28 @@
+<form class="fill fill_country">
+  <h3>
+    Entregue o crachá para o participante
+  </h3>
+  <h4>
+    o crachá foi impresso na impressora {{ printer }}
+  </h4>
+
+  <button type="button"
+          ng-click="given()"
+          ui-keydown="{ 'down': 'focusReprint($event)' }"
+          focus-on="given">
+    okay, entregue!
+  </button>
+  <button type="button"
+          ng-click="reprint()"
+          ui-keydown="{ 'down': 'focusFix($event)', 'up': 'focusGiven($event)' }"
+          focus-on="reprint">
+    imprimir novamente
+  </button>
+  <button type="button"
+          ng-click="fix()"
+          ui-keydown="{ 'up': 'focusReprint($event)' }"
+          focus-on="fix">
+    editar dados
+  </button>
+
+</form>

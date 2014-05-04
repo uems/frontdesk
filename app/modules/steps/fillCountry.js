@@ -41,7 +41,7 @@ angular
         country: person.country,
       };
 
-      $scope.commitCountry = lazyCommit(People.setCountry, locator, 'person.fill_name', person, $scope, 'badgeCorp');
+      $scope.commitCountry = lazyCommit(People.setCountry, locator, 'person.fill_document', person, $scope, 'badgeCorp');
     });
   })
   .config(function($stateProvider) {
