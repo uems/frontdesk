@@ -29,6 +29,10 @@
       <th ng-class="{ done:   person.city }"    >cidade</th>
       <td ng-class="{ empty: !person.city }"    >{{ person.city || 'não informado' }}</td>
     </tr>
+    <tr ng-click="fastForward('person.fill_gender')">
+      <th ng-class="{ done:   person.gender }"  >sexo</th>
+      <td ng-class="{ empty: !person.gender }"  >{{ person.gender || 'não informado' }}</td>
+    </tr>
 
   </tbody>
   <tbody>

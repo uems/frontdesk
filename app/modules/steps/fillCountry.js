@@ -30,9 +30,12 @@ angular
 
     People.get(locator).$promise.then(function(person) {
       var index = $scope.countries.indexOf(person.country);
-      if (index < 0) {
+      if ((index < 0) && (person.country)) {
         index = $scope.countries.length;
         $scope.enteredCountry = person.country;
+      }
+      else {
+        index = 0;
       }
       focus('country-'+index);
 
