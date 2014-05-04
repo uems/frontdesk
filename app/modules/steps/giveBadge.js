@@ -13,7 +13,7 @@ angular
     var locator = { xid: $stateParams.xid };
 
     $scope.step = {
-      printer: 1
+      xid: $stateParams.xid,
     };
 
     $scope.focusGiven   = _.partial(focus, 'given');
@@ -26,14 +26,14 @@ angular
     $scope.reprint = function() {
       $scope.fastForward('person.print_badge');
     };
+
     $scope.given = function() {
-      $scope.fastForward('home');
+      People.giveBadge(locator, $scope.step, function() {
+        $scope.fastForward('home');
+      });
     };
 
-    People.get(locator).$promise.then(function() {
-      $scope.focusGiven();
-      $scope.step = {};
-    });
+    $scope.focusGiven();
   })
   .config(function($stateProvider) {
     $stateProvider

@@ -13,7 +13,8 @@ angular
       'setBadgeName':  { method: 'POST', url: endpoint+'/set-badge-name' },
       'setBadgeCorp':  { method: 'POST', url: endpoint+'/set-badge-corp' },
       'setCountry':    { method: 'POST', url: endpoint+'/set-country' },
-      'setCategory':   { method: 'POST', url: endpoint+'/set-category' }
+      'setCategory':   { method: 'POST', url: endpoint+'/set-category' },
+      'giveBadge':     { method: 'POST', url: endpoint+'/give-badge' }
     };
     return $resource(endpoint, paramDefaults, actions);
   });
