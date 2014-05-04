@@ -18,7 +18,8 @@ angular
     }
 
     $scope.validness = function(person) {
-      return person.validTickets.length;
+      return ((person.validTickets.length) * 10) +
+             ((person.source === 'greve')  * 1);
     };
 
     $scope.doSearch = function() {

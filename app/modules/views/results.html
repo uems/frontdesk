@@ -1,19 +1,24 @@
 <ul>
   <li ng-repeat="person in results | orderBy:validness:true"
-      ng-class="{ valid: person.validTickets.length, pending: person.pendingTickets.length }"
+      ng-class="{ valid:   person.validTickets.length,
+                  pending: person.pendingTickets.length || person.payableTicket }"
       ui-sref="person({ xid: person.xid })"
   class="{{ person.tickets[0].status }}">
-  <figure>
-    <figcaption>{{ person.source[0]}}{{ person.id }}</figcaption>
-    <img gravatar-src="person.email" gravatar-size="100">
-  </figure>
+    <figure>
+      <figcaption>{{ person.source[0]}}{{ person.id }}</figcaption>
+      <img gravatar-src="person.email" gravatar-size="100">
+    </figure>
 
-  <h1 ng-class="{ 'empty': !person.name }">{{ person.name || 'sem nome' }}</h1>
+    <h1 ng-class="{ 'empty': !person.name }">{{ person.name || 'sem nome' }}</h1>
 
-  <p ng-class="{ 'empty': !person.email }"   >{{ person.email    || 'sem email' }}</p>
-  <p ng-class="{ 'empty': !person.document }">{{ person.document || 'sem documento' }}</p>
+    <p ng-class="{ 'empty': !person.email }"   >{{ person.email    || 'sem email' }}</p>
+    <p ng-class="{ 'empty': !person.document }">{{ person.document || 'sem documento' }}</p>
 
-  <p ng-show="person.tickets[0].status == 'confirmed'">entrada autorizada</p>
+    <p>
+      {{ person.category }} -
+      <span ng-show="person.validTickets">entrada autorizada</span>
+      <span ng-hide="person.validTickets">entrada pendente</span>
+    </p>
   </li>
 </ul>
 <br class="clear" />
