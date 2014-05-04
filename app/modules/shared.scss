@@ -1,5 +1,8 @@
 $transition: 1s;
 
+$valid-bg: lightgreen;
+$pending-bg: lightyellow;
+
 @mixin in-out($from, $to) {
   &.ng-enter {
     -webkit-animation: fadeIn#{$from}Big $transition;

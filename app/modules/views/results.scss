@@ -22,10 +22,10 @@ main.search {
       height: 6rem;
 
       &.pending {
-        background: lightyellow;
+        background: $pending-bg;
       }
       &.valid {
-        background: lightgreen;
+        background: $valid-bg;
       }
       &.focused {
         outline: 0px;

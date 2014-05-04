@@ -6,11 +6,16 @@ main.person {
   padding: 2rem 4rem;
 
   header {
+    &.pending {
+      background: $pending-bg;
+    }
+    &.valid {
+      background: $valid-bg;
+    }
     &.loading {
       background: url(/ajax-loader.gif) no-repeat right;
     }
     height: 100px;
-    border: 3px solid black;
     width: 45rem;
     float: left;
 
@@ -37,9 +42,9 @@ main.person {
   table {
     float: right;
     width: 23rem;
-    border: 3px solid black;
     padding: 0 1rem;
     margin: 0px;
+    border-left: 1px solid gray;
 
     &.loading td {
       background: url(/ajax-loader.gif) no-repeat right;
@@ -96,7 +101,7 @@ main.person {
     padding: 2rem;
     text-align: center;
     height: 20rem;
-    border: 3px solid black;
+    border-top: 1px solid gray;
 
     h1 {
       font-size: 250%;
