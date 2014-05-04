@@ -54,12 +54,12 @@
       <th colspan="2">etiqueta/material</th>
     </tr>
     <tr ng-click="fastForward('person.fill_badge_name')">
-      <th>nome</th>
-      <td>{{ person.badgeName }}</td>
+      <th ng-class="{ done:   person.badgeName }">nome</th>
+      <td ng-class="{ empty: !person.badgeName }">{{ person.badgeName }}</td>
     </tr>
     <tr ng-click="fastForward('person.fill_badge_corp')">
-      <th>empresa</th>
-      <td>{{ person.badgeCorp }}</td>
+      <th ng-class="{ done:   person.badgeCorp }">empresa</th>
+      <td ng-class="{ empty: !person.badgeCorp }">{{ person.badgeCorp }}</td>
     </tr>
     <tr ng-click="fastForward('person.print_badge')">
       <th>impresso?</th>
