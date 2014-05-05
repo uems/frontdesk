@@ -12,4 +12,8 @@
          ui-keypress="{ 13: 'applyPromocode($event)' }"
          ui-mask="**.**.**.**"
          focus-on="hash" />
+
+  <h5 ng-show="error">
+    {{ error }}
+  </h5>
 </form>

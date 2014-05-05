@@ -9,7 +9,7 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('ChooseCategoryCtrl', function($scope, $stateParams, $state, People, focus, lazyCommit) {
+  .controller('ChooseCategoryCtrl', function($scope, $stateParams, $state, People, person, focus, lazyCommit) {
     var locator = { xid: $stateParams.xid };
 
     $scope.categories = [ 'Participante', 'Estudante', 'Caravaneiro' ];
@@ -29,22 +29,23 @@ angular
       focus('category-'+(current+1));
     };
 
-    People.get(locator).$promise.then(function(person) {
-      var index = Math.max($scope.categories.indexOf(person.category), 0);
-      focus('category-'+index);
+    var index = Math.max($scope.categories.indexOf(person.category), 0);
+    focus('category-'+index);
 
-      $scope.step = {
-        xid: $stateParams.xid,
-        category: person.category,
-      };
+    $scope.step = {
+      xid: person.xid,
+      category: person.category,
+    };
 
-      $scope.commitCategory = lazyCommit(People.setCategory, locator, 'person.give_badge', person, $scope, 'category');
-    });
+    $scope.commitCategory = lazyCommit(People.setCategory, locator, 'person.give_badge', person, $scope, 'category');
   })
   .config(function($stateProvider) {
     $stateProvider
       .state('person.choose_category', {
         url: '^/person/:xid/choose-category',
+        resolve: {
+          person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
+        },
         views: {
           step: { controller: 'ChooseCategoryCtrl', templateUrl: 'modules/steps/chooseCategory.html' }
         }

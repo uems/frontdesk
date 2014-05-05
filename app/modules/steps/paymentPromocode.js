@@ -26,9 +26,11 @@ angular
     };
 
     $scope.applyPromocode = function() {
-      console.log(person.applyPromocode);
-
-      People.applyPromocode(locator, $scope.step, function(x){console.log(x);} );
+      People.applyPromocode(locator, $scope.step, function() {
+        $scope.reload('person.payment');
+      }, function(response) {
+        $scope.error = response.data.err;
+      });
     };
 
   })
