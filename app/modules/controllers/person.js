@@ -21,7 +21,10 @@ angular
         $scope.ticket = person.validTickets[0] || person.pendingTickets[0];
         $scope.hasValidTicket = Boolean(person.validTickets.length);
         $scope.isForeign = person.country !== 'Brazil';
-        $state.go(nextState || 'person.fill_name');
+
+        if ($state.is('person')) {
+          $state.go(nextState || 'person.start_ticket');
+        }
       });
     };
 
