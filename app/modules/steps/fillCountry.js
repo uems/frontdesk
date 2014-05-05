@@ -34,7 +34,7 @@ angular
         index = $scope.countries.length;
         $scope.enteredCountry = person.country;
       }
-      else {
+      else if (!person.country) {
         index = 0;
       }
       focus('country-'+index);
