@@ -17,5 +17,6 @@ angular
       'giveBadge':     { method: 'POST', url: endpoint+'/give-badge' },
       'acceptProof':   { method: 'POST', url: endpoint+'/accept-proof' }
     };
+
     return $resource(endpoint, paramDefaults, actions);
   });

@@ -22,7 +22,7 @@ angular
     $scope.focusProof     = _.partial(focus, 'proof');
 
     $scope.money = function() {
-      $scope.fastForward('person.fill_category');
+      $scope.fastForward('person.choose_category');
     };
     $scope.promocode = function() {
       $scope.fastForward('person.payment_promocode');

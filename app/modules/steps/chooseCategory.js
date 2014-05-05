@@ -2,14 +2,14 @@
 'use strict';
 
 angular
-  .module('fd.steps.fillCategory', [
+  .module('fd.steps.chooseCategory', [
     'fd.services.people',
     'fd.directives.focusOn',
     'fd.factories.lazyCommit',
     'ui.router',
     'ui.keypress',
   ])
-  .controller('FillCategoryCtrl', function($scope, $stateParams, $state, People, focus, lazyCommit) {
+  .controller('ChooseCategoryCtrl', function($scope, $stateParams, $state, People, focus, lazyCommit) {
     var locator = { xid: $stateParams.xid };
 
     $scope.categories = [ 'Estudante', 'Participante', 'Caravaneiro' ];
@@ -43,10 +43,10 @@ angular
   })
   .config(function($stateProvider) {
     $stateProvider
-      .state('person.fill_category', {
-        url: '^/person/:xid/fill-category',
+      .state('person.choose_category', {
+        url: '^/person/:xid/choose-category',
         views: {
-          step: { controller: 'FillCategoryCtrl', templateUrl: 'modules/steps/fillCategory.html' }
+          step: { controller: 'ChooseCategoryCtrl', templateUrl: 'modules/steps/chooseCategory.html' }
         }
       });
   });
