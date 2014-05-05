@@ -11,6 +11,7 @@ angular
   ])
   .controller('PaymentCtrl', function($scope, $stateParams, $state, People, focus) {
     var locator = { xid: $stateParams.xid };
+    $scope.loaded = false;
 
     $scope.step = {
       xid: $stateParams.xid,
@@ -33,7 +34,9 @@ angular
 
     People.get(locator).$promise.then(function(person) {
       if (person.validTickets) {
+        $scope.fastForward('person.fill_badge_name');
       }
+      $scope.loaded = true;
       $scope.step = {
         xid: person.xid,
       };

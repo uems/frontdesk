@@ -1,6 +1,6 @@
 [ui-view=step] {
   &.loading {
-    opacity: .6;
+    opacity: .3;
 
     input[type=text] {
       background: url(/ajax-loader.gif) no-repeat right;
