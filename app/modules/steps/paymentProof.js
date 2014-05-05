@@ -10,7 +10,7 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('PaymentProofCtrl', function($scope, $stateParams, $state, People, focus) {
+  .controller('PaymentProofCtrl', function($scope, $stateParams, $state, $timeout, People, focus) {
     var locator = { xid: $stateParams.xid };
 
     $scope.focusAccept = _.partial(focus, 'accept');
@@ -20,7 +20,7 @@ angular
 
     $scope.accept = function() {
       People.acceptProof(locator, $scope.step, function() {
-        $scope.fastForward('person.badgeName');
+        $scope.fastForward('person.fill_badge_name');
       });
     };
 
@@ -30,9 +30,13 @@ angular
 
     People.get(locator).$promise.then(function(person) {
       $scope.tickets = person.pendingTickets;
+      $scope.notFound = person.pendingTickets.length === 0;
       $scope.step = {
         xid: person.xid,
       };
+      if (!person.pendingTickets.length) {
+        return $timeout(function() { $scope.fastForward('person.payment'); }, 5000);
+      }
       $scope.focusFirstTicket();
     });
   })

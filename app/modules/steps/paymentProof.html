@@ -2,12 +2,17 @@
   <h3>
     apresentação de comprovante de pagamento
   </h3>
-  <h5>
+
+  <h5 ng-show="notFound">
+    nenhum boleto pendente encontrado! voltando...
+  </h5>
+
+  <h5 ng-show="tickets">
     selecione o boleto cujo comprovante
     foi apresentado na lista abaixo
   </h5>
 
-  <table>
+  <table ng-show="tickets">
     <tr>
       <th></th>
       <th>id</th>
@@ -43,12 +48,14 @@
 
   <button ui-keydown="{ 'down': 'focusBack($event)' }"
           ng-click="accept()"
+          ng-show="tickets"
           ng-disabled="!step.proofFor"
           focus-on="accept">
     comprovante aceito
   </button>
   <button ui-keydown="{ 'up': 'focusAccept($event)' }"
           ng-click="back()"
+          ng-show="tickets"
           focus-on="back">
     voltar
   </button>
