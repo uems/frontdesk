@@ -23,7 +23,7 @@ angular
         $scope.isForeign = person.country !== 'Brazil';
 
         if ($state.is('person')) {
-          $state.go(nextState || 'person.start_ticket');
+          $state.go(nextState || 'person.pay');
         }
       });
     };

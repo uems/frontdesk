@@ -1,5 +1,5 @@
 <header ng-class="{ loading: !person,
-                    valid: person.validTickets,
+                    valid: person.validTickets.length,
                     pending: person.pendingTickets || person.payableTicket }">
   <a ng-href="{{ person.uri }}" target="_blank">debug</a>
   <img gravatar-src="person.email" gravatar-size="100">

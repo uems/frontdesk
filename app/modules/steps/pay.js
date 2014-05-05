@@ -44,7 +44,7 @@ angular
   .config(function($stateProvider) {
     $stateProvider
       .state('person.pay', {
-        url: '^/person/:xid/payt',
+        url: '^/person/:xid/pay',
         views: {
           step: { controller: 'PayCtrl', templateUrl: 'modules/steps/pay.html' }
         }
