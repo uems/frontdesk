@@ -62,6 +62,10 @@
       <th ng-class="{ done:   ticket.method }">forma</th>
       <td ng-class="{ empty: !ticket.method }">{{ ticket.method }}</td>
     </tr>
+    <tr ng-show="person.promotionalCode" >
+      <th ng-class="{ done:   person.promotionalCode }">código promocional</th>
+      <td ng-class="{ empty: !person.promotionalCode }">{{ person.promotionalCode.hash }} = {{ person.promotionalCode.offRate }}%</td>
+    </tr>
   </tbody>
 
   <tbody ng-show="hasValidTickets">

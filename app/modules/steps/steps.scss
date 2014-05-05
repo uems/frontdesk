@@ -76,6 +76,13 @@
     }
   }
 
+  .fill_promocode {
+    input[type=text] {
+      text-align: center;
+      width: 15rem;
+    }
+  }
+
   .print_badge, .done {
     background: url(/ajax-loader.gif) no-repeat top center;
     padding-top: 5rem;

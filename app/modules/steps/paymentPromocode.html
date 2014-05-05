@@ -1,0 +1,15 @@
+<form class="fill fill_promocode">
+  <h3>
+    solicite o código promocional
+  </h3>
+
+  <h4>
+    o código deve possuir exatamente 8 caracteres alfanuméricos
+  </h4>
+
+  <input type="text"
+         ng-model="step.hash"
+         ui-keypress="{ 13: 'applyPromocode($event)' }"
+         ui-mask="**.**.**.**"
+         focus-on="hash" />
+</form>

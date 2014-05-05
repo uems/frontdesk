@@ -15,7 +15,8 @@ angular
       'setCountry':    { method: 'POST', url: endpoint+'/set-country' },
       'setCategory':   { method: 'POST', url: endpoint+'/set-category' },
       'giveBadge':     { method: 'POST', url: endpoint+'/give-badge' },
-      'acceptProof':   { method: 'POST', url: endpoint+'/accept-proof' }
+      'acceptProof':   { method: 'POST', url: endpoint+'/accept-proof' },
+      'applyPromocode':{ method: 'POST', url: endpoint+'/apply-promocode' }
     };
 
     return $resource(endpoint, paramDefaults, actions);

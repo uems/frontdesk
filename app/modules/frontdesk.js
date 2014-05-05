@@ -19,6 +19,7 @@ angular
     'fd.steps.giveBadge',
     'fd.steps.payment',
     'fd.steps.paymentProof',
+    'fd.steps.paymentPromocode',
     'fd.steps.done',
     'ui.router',
     'ui.router.compat',
