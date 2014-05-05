@@ -83,14 +83,14 @@ main.person {
     float: right;
     width: 23rem;
     padding: 0 1rem;
-    margin: 0px;
+    margin: -1.5rem 0 0 0;
 
     &.loading td {
       background: url(/ajax-loader.gif) no-repeat left;
     }
 
     tr {
-      height: 2rem;
+      height: 1.6rem;
 
       &:first-child th {
         text-align: center;
