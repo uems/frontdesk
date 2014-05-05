@@ -8,8 +8,9 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('FillCountryCtrl', function($scope, $stateParams, $state, People, focus, lazyCommit) {
-    var locator = { xid: $stateParams.xid };
+  .controller('FillCountryCtrl', function($scope, $state, People, person, focus, lazyCommit) {
+    var locator = { xid: person.xid };
+    $scope.step = { xid: person.xid, country: person.country };
 
     $scope.countries = ['Brasil', 'Uruguai', 'Argentina' ];
 
@@ -28,29 +29,27 @@ angular
       focus('country-'+(current+1));
     };
 
-    People.get(locator).$promise.then(function(person) {
-      var index = $scope.countries.indexOf(person.country);
-      if ((index < 0) && (person.country)) {
-        index = $scope.countries.length;
-        $scope.enteredCountry = person.country;
-      }
-      else if (!person.country) {
-        index = 0;
-      }
-      focus('country-'+index);
+    $scope.commitCountry = lazyCommit(People.setCountry, locator, 'person.fill_document', person, $scope, 'country');
 
-      $scope.step = {
-        xid: $stateParams.xid,
-        country: person.country,
-      };
+    var index = $scope.countries.indexOf(person.country);
+    if ((index < 0) && (person.country)) {
+      index = $scope.countries.length;
+      $scope.enteredCountry = person.country;
+    }
+    else if (!person.country) {
+      index = 0;
+    }
 
-      $scope.commitCountry = lazyCommit(People.setCountry, locator, 'person.fill_document', person, $scope, 'country');
-    });
+    focus('country-'+index);
+
   })
   .config(function($stateProvider) {
     $stateProvider
       .state('person.fill_country', {
         url: '^/person/:xid/fill-country',
+        resolve: {
+          person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
+        },
         views: {
           step: { controller: 'FillCountryCtrl', templateUrl: 'modules/steps/fillCountry.html' }
         }

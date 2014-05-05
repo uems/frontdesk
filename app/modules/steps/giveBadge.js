@@ -9,12 +9,10 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('GiveBadgeCtrl', function($scope, $stateParams, $state, People, focus) {
-    var locator = { xid: $stateParams.xid };
+  .controller('GiveBadgeCtrl', function($scope, $state, People, person, focus) {
+    var locator = { xid: person.xid };
 
-    $scope.step = {
-      xid: $stateParams.xid,
-    };
+    $scope.step = { xid: person.xid };
 
     $scope.focusGiven   = _.partial(focus, 'given');
     $scope.focusReprint = _.partial(focus, 'reprint');
@@ -39,6 +37,9 @@ angular
     $stateProvider
       .state('person.give_badge', {
         url: '^/person/:xid/give-badge',
+        resolve: {
+          person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
+        },
         views: {
           step: { controller: 'GiveBadgeCtrl', templateUrl: 'modules/steps/giveBadge.html' }
         }

@@ -10,7 +10,7 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('PaymentProofCtrl', function($scope, $stateParams, $state, $timeout, People, focus) {
+  .controller('PaymentProofCtrl', function($scope, $stateParams, $state, $timeout, People, person, focus) {
     var locator = { xid: $stateParams.xid };
 
     $scope.focusAccept = _.partial(focus, 'accept');
@@ -28,22 +28,25 @@ angular
       $scope.fastForward('person.payment');
     };
 
-    People.get(locator).$promise.then(function(person) {
-      $scope.boletoTickets = _(person.pendingTickets).where({ method: 'boleto' });
-      $scope.notFound      = _($scope.boletoTickets).isEmpty();
-      $scope.step = {
-        xid: person.xid,
-      };
-      if ($scope.notFound) {
-        return $timeout(function() { $scope.fastForward('person.payment'); }, 5000);
-      }
-      $scope.focusFirstTicket();
-    });
+    $scope.boletoTickets = _(person.pendingTickets).where({ method: 'boleto' });
+    $scope.notFound      = _($scope.boletoTickets).isEmpty();
+    $scope.step = {
+      xid: person.xid,
+    };
+
+    if ($scope.notFound) {
+      return $timeout(function() { $scope.fastForward('person.payment'); }, 5000);
+    }
+
+    $scope.focusFirstTicket();
   })
   .config(function($stateProvider) {
     $stateProvider
       .state('person.payment_proof', {
         url: '^/person/:xid/payment-proof',
+        resolve: {
+          person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
+        },
         views: {
           step: { controller: 'PaymentProofCtrl', templateUrl: 'modules/steps/paymentProof.html' }
         }

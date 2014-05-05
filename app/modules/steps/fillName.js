@@ -8,24 +8,25 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('FillNameCtrl', function($scope, $stateParams, $state, People, focus, lazyCommit) {
-    var locator = { xid: $stateParams.xid };
+  .controller('FillNameCtrl', function($scope, $state, People, person, focus, lazyCommit) {
+    var locator = { xid: person.xid };
 
-    People.get(locator).$promise.then(function(person) {
-      focus('name');
+    focus('name');
 
-      $scope.step = {
-        xid: $stateParams.xid,
-        name: person.name
-      };
+    $scope.step = {
+      xid: person.xid,
+      name: person.name
+    };
 
-      $scope.commitName = lazyCommit(People.setName, locator, 'person.fill_country', person, $scope, 'name');
-    });
+    $scope.commitName = lazyCommit(People.setName, locator, 'person.fill_country', person, $scope, 'name');
   })
   .config(function($stateProvider) {
     $stateProvider
       .state('person.fill_name', {
         url: '^/person/:xid/fill-name',
+        resolve: {
+          person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
+        },
         views: {
           step: { controller: 'FillNameCtrl', templateUrl: 'modules/steps/fillName.html' }
         }

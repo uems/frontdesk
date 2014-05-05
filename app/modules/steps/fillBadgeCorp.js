@@ -8,24 +8,21 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('FillBadgeCorpCtrl', function($scope, $stateParams, $state, People, focus, lazyCommit) {
-    var locator = { xid: $stateParams.xid };
+  .controller('FillBadgeCorpCtrl', function($scope, $state, People, person, focus, lazyCommit) {
+    var locator = { xid: person.xid };
+    $scope.step = { xid: person.xid, badgeCorp: person.badgeCorp, };
 
-    People.get(locator).$promise.then(function(person) {
-      focus('badgeCorp');
+    focus('badgeCorp');
 
-      $scope.step = {
-        xid: $stateParams.xid,
-        badgeCorp: person.badgeCorp,
-      };
-
-      $scope.commitBadgeCorp = lazyCommit(People.setBadgeCorp, locator, 'person.print_badge', person, $scope, 'badgeCorp');
-    });
+    $scope.commitBadgeCorp = lazyCommit(People.setBadgeCorp, locator, 'person.print_badge', person, $scope, 'badgeCorp');
   })
   .config(function($stateProvider) {
     $stateProvider
       .state('person.fill_badge_corp', {
         url: '^/person/:xid/fill-badge-corp',
+        resolve: {
+          person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
+        },
         views: {
           step: { controller: 'FillBadgeCorpCtrl', templateUrl: 'modules/steps/fillBadgeCorp.html' }
         }

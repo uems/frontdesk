@@ -9,28 +9,21 @@ angular
     'ui.keypress',
     'ui.mask'
   ])
-  .controller('FillDocumentCtrl', function($scope, $stateParams, $state, People, focus, lazyCommit) {
-    var locator = { xid: $stateParams.xid };
+  .controller('FillDocumentCtrl', function($scope, $state, People, person, focus, lazyCommit) {
+    var locator = { xid: person.xid };
+    $scope.step = { xid: person.xid, document: person.document };
 
-    People.get(locator).$promise.then(function(person) {
-      focus('document');
+    focus('document');
 
-      $scope.commitDocument = function() {
-        People.setDocument(locator, $scope.step, function() { $scope.reload('person'); });
-      };
-
-      $scope.step = {
-        xid: $stateParams.xid,
-        document: person.document
-      };
-
-      $scope.commitDocument = lazyCommit(People.setDocument, locator, 'person.payment', person, $scope, 'document');
-    });
+    $scope.commitDocument = lazyCommit(People.setDocument, locator, 'person.payment', person, $scope, 'document');
   })
   .config(function($stateProvider) {
     $stateProvider
       .state('person.fill_document', {
         url: '^/person/:xid/fill-document',
+        resolve: {
+          person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
+        },
         views: {
           step: { controller: 'FillDocumentCtrl', templateUrl: 'modules/steps/fillDocument.html' }
         }

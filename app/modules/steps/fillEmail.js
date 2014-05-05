@@ -8,26 +8,23 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('FillEmailCtrl', function($scope, $stateParams, People, focus, lazyCommit) {
-    var locator = { xid: $stateParams.xid };
+  .controller('FillEmailCtrl', function($scope, People, person, focus, lazyCommit) {
+    var locator = { xid: person.xid };
+    $scope.step = { xid: person.xid, email: person.email };
 
-   People.get(locator).$promise.then(function(person) {
-      focus('email');
+    focus('email');
 
-      $scope.step = {
-        xid: $stateParams.xid,
-        email: person.email
-      };
+    $scope.cancel = function() { $scope.step = person.email; };
 
-      $scope.cancel = function() { $scope.step = person.email; };
-
-      $scope.commitEmail = lazyCommit(People.setEmail, locator, 'person.fill_name', person, $scope, 'email');
-    });
+    $scope.commitEmail = lazyCommit(People.setEmail, locator, 'person.fill_name', person, $scope, 'email');
   })
   .config(function($stateProvider) {
     $stateProvider
       .state('person.fill_email', {
         url: '^/person/:xid/fill-email',
+        resolve: {
+          person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
+        },
         views: {
           step: { controller: 'FillEmailCtrl', templateUrl: 'modules/steps/fillEmail.html' }
         }
