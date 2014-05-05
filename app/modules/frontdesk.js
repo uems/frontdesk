@@ -17,6 +17,7 @@ angular
     'fd.steps.fillCategory',
     'fd.steps.printBadge',
     'fd.steps.giveBadge',
+    'fd.steps.pay',
     'ui.router',
     'ui.router.compat',
     'templates',

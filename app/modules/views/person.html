@@ -44,10 +44,10 @@
 
   </tbody>
   <tbody>
-    <tr ng-click="fastForward('person.start_ingresso')">
+    <tr ng-click="fastForward('person.pay')">
       <th colspan="2">ingresso</th>
     </tr>
-    <tr ng-click="fastForward('person.fill_category')">
+    <tr>
       <th ng-class="{ done:   ticket.grants }">categoria</th>
       <td ng-class="{ empty: !ticket.grants }">{{ ticket.grants }}</td>
     </tr>
@@ -55,7 +55,7 @@
       <th ng-class="{ done:   ticket.method }">forma</th>
       <td ng-class="{ empty: !ticket.method }">{{ ticket.method }}</td>
     </tr>
-    <tr ng-click="fastForward('person.pay_ticket')">
+    <tr>
       <th ng-class="{ done:   hasValidTicket }">situação</th>
       <td ng-class="{ empty: !hasValidTicket }">{{ ticket.status }}</td>
     </tr>

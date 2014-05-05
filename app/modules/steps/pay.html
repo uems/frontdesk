@@ -1,0 +1,29 @@
+<form class="fill start_ticket">
+  <h3>
+    participante com inscrição pendente de pagamento
+  </h3>
+  <h4>
+    use <kbd>&#8593;</kbd> e <kbd>&#8595;</kbd> para trocar de método<br/>
+    de pagamento, <kbd>enter</kbd> para selecionar
+  </h4>
+
+  <button type="button"
+          ng-click="given()"
+          ui-keydown="{ 'down': 'focusPromocode($event)' }"
+          focus-on="money">
+    em dinheiro
+  </button>
+  <button type="button"
+          ng-click="reprint()"
+          ui-keydown="{ 'down': 'focusProof($event)', 'up': 'focusMoney($event)' }"
+          focus-on="promocode">
+    código promocional
+  </button>
+  <button type="button"
+          ng-click="fix()"
+          ui-keydown="{ 'up': 'focusPromocode($event)' }"
+          focus-on="proof">
+    apresentou boleto
+  </button>
+
+</form>
