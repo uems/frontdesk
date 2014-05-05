@@ -44,10 +44,13 @@ angular
       People.get({xid: $stateParams.xid}).$promise.then(function(person) {
         $scope.person = person;
         $scope.ticket = person.validTickets[0] || person.pendingTickets[0];
-        $scope.hasValidTicket = !_(person.validTickets).isEmpty();
+        $scope.hasValidTickets = !_(person.validTickets).isEmpty();
         $scope.isForeign = person.country !== 'Brasil';
 
-        if ($state.is('person')) {
+        if (nextState === 'person') {
+          $state.go('person');
+        }
+        else if ($state.is('person')) {
           $state.go(nextState || decideState());
         }
       });

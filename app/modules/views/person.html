@@ -64,7 +64,7 @@
     </tr>
   </tbody>
 
-  <tbody>
+  <tbody ng-show="hasValidTickets">
     <tr ng-click="fastForward('person.fill_badge_name')">
       <th colspan="2">etiqueta/material</th>
     </tr>
@@ -78,11 +78,11 @@
     </tr>
     <tr ng-click="fastForward('person.print_badge')">
       <th>impresso?</th>
-      <td>secr. de palestrantes</td>
+      <td></td>
     </tr>
     <tr ng-click="fastForward('person.give_badge')">
       <th>entregue?</th>
-      <td>há 5 minutos</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
