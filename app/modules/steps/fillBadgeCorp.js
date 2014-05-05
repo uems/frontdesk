@@ -8,7 +8,9 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('FillBadgeCorpCtrl', function($scope, $state, People, person, focus, lazyCommit) {
+  .controller('FillBadgeCorpCtrl', function($scope, People, person, focus, lazyCommit) {
+    $scope.demand(person.validTickets);
+
     var locator = { xid: person.xid };
     $scope.step = { xid: person.xid, badgeCorp: person.badgeCorp, };
 

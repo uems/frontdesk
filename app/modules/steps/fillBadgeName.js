@@ -9,6 +9,8 @@ angular
     'ui.keypress',
   ])
   .controller('FillBadgeNameCtrl', function($scope, $state, People, person, focus, lazyCommit) {
+    $scope.demand(person.validTickets);
+
     var locator = { xid: person.xid };
     $scope.step = { xid: person.xid, badgeName: person.badgeName || person.name };
 

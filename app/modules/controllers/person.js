@@ -37,6 +37,19 @@ angular
 
     }
 
+    $scope.demand = function(testObject, raise) {
+      $scope.validState = false;
+      if (_(testObject).isEmpty()) {
+        $scope.reload();
+        if (raise) {
+          throw 'invalid state';
+        }
+      }
+      else {
+        $scope.validState = true;
+      }
+    };
+
     $scope.fastForward = function(nextState) {
       $state.go(nextState);
     };

@@ -10,6 +10,8 @@ angular
     'ui.keypress',
   ])
   .controller('GiveBadgeCtrl', function($scope, $state, People, person, focus) {
+    $scope.demand(person.validTickets);
+
     var locator = { xid: person.xid };
 
     $scope.step = { xid: person.xid };

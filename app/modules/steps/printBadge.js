@@ -8,12 +8,11 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('PrintBadgeCtrl', function($scope, $stateParams, People) {
+  .controller('PrintBadgeCtrl', function($scope, person, People) {
+    $scope.demand(person.validTickets, true);
+
     // FIXME: record printer choice somewhere in the client
-    var locator = {
-      xid: $stateParams.xid,
-      printer: 1
-    };
+    var locator = { xid: person.xid, printer: 1 };
 
     function success(result) {
       console.log(result.result);
@@ -29,6 +28,9 @@ angular
     $stateProvider
       .state('person.print_badge', {
         url: '^/person/:xid/print-badge',
+        resolve: {
+          person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
+        },
         views: {
           step: { controller: 'PrintBadgeCtrl', templateUrl: 'modules/steps/printBadge.html' }
         }
