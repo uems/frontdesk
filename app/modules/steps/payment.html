@@ -1,4 +1,4 @@
-<form class="fill start_ticket">
+<form class="fill payment">
   <h3>
     participante com inscrição pendente de pagamento
   </h3>
@@ -8,19 +8,19 @@
   </h4>
 
   <button type="button"
-          ng-click="given()"
+          ng-click="money()"
           ui-keydown="{ 'down': 'focusPromocode($event)' }"
           focus-on="money">
     em dinheiro
   </button>
   <button type="button"
-          ng-click="reprint()"
+          ng-click="promocode()"
           ui-keydown="{ 'down': 'focusProof($event)', 'up': 'focusMoney($event)' }"
           focus-on="promocode">
     código promocional
   </button>
   <button type="button"
-          ng-click="fix()"
+          ng-click="proof()"
           ui-keydown="{ 'up': 'focusPromocode($event)' }"
           focus-on="proof">
     apresentou boleto

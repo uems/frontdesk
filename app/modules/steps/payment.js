@@ -2,14 +2,14 @@
 'use strict';
 
 angular
-  .module('fd.steps.pay', [
+  .module('fd.steps.payment', [
     'fd.services.people',
     'fd.directives.focusOn',
     'fd.factories.lazyCommit',
     'ui.router',
     'ui.keypress',
   ])
-  .controller('PayCtrl', function($scope, $stateParams, $state, People, focus) {
+  .controller('PaymentCtrl', function($scope, $stateParams, $state, People, focus) {
     var locator = { xid: $stateParams.xid };
 
     $scope.step = {
@@ -21,14 +21,14 @@ angular
     $scope.focusProof     = _.partial(focus, 'proof');
 
     $scope.money = function() {
-      $scope.fastForward('person.pay.money');
+      $scope.fastForward('person.paymentMoney');
     };
     $scope.promocode = function() {
-      $scope.fastForward('person.pay.promocode');
+      $scope.fastForward('person.paymentPromocode');
     };
 
     $scope.proof = function() {
-      $scope.fastForward('person.pay.proof');
+      $scope.fastForward('person.paymentProof');
     };
 
     People.get(locator).$promise.then(function(person) {
@@ -39,14 +39,14 @@ angular
       };
     });
 
-    $scope.focusMoney();
+    $scope.focusProof();
   })
   .config(function($stateProvider) {
     $stateProvider
-      .state('person.pay', {
-        url: '^/person/:xid/pay',
+      .state('person.payment', {
+        url: '^/person/:xid/payment',
         views: {
-          step: { controller: 'PayCtrl', templateUrl: 'modules/steps/pay.html' }
+          step: { controller: 'PaymentCtrl', templateUrl: 'modules/steps/payment.html' }
         }
       });
   });
