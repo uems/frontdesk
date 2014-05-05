@@ -33,7 +33,7 @@ angular
     };
 
     People.get(locator).$promise.then(function(person) {
-      if (person.validTickets) {
+      if (!_(person.validTickets).isEmpty()) {
         $scope.fastForward('person.fill_badge_name');
       }
       $scope.loaded = true;
