@@ -12,7 +12,9 @@ angular
   .controller('PaymentPromocodeCtrl', function($scope, People, person, focus) {
     var locator = { xid: person.xid };
 
-    if (!_(person.promotionalCode).isEmpty()) {
+    var hasPromocode = !_(person.promotionalCode).isEmpty();
+
+    if (hasPromocode) {
       $scope.fastForward('person.payment');
     }
 
