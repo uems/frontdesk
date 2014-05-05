@@ -20,6 +20,9 @@ main.person {
     }
     &.loading {
       background: url(/ajax-loader.gif) no-repeat right;
+      * {
+        display: none;
+      }
     }
 
     button {

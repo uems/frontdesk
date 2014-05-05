@@ -12,8 +12,8 @@ angular
   .controller('ChooseCategoryCtrl', function($scope, $stateParams, $state, People, focus, lazyCommit) {
     var locator = { xid: $stateParams.xid };
 
-    $scope.categories = [ 'Estudante', 'Participante', 'Caravaneiro' ];
-    $scope.prices = _.chain($scope.categories).zip([150,300,150]).object().value();
+    $scope.categories = [ 'Participante', 'Estudante', 'Caravaneiro' ];
+    $scope.prices = _.chain($scope.categories).zip([300,150,150]).object().value();
 
     $scope.selectCategory = function(ev, index) {
       $scope.step.category = $scope.categories[index];

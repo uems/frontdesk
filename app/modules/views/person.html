@@ -51,16 +51,16 @@
       <th colspan="2">ingresso</th>
     </tr>
     <tr>
+      <th ng-class="{ done:   hasValidTickets }">situação</th>
+      <td ng-class="{ empty: !hasValidTickets }">{{ ticket.status }}</td>
+    </tr>
+    <tr>
       <th ng-class="{ done:   ticket.grants }">categoria</th>
       <td ng-class="{ empty: !ticket.grants }">{{ ticket.grants }}</td>
     </tr>
     <tr>
       <th ng-class="{ done:   ticket.method }">forma</th>
       <td ng-class="{ empty: !ticket.method }">{{ ticket.method }}</td>
-    </tr>
-    <tr>
-      <th ng-class="{ done:   hasValidTicket }">situação</th>
-      <td ng-class="{ empty: !hasValidTicket }">{{ ticket.status }}</td>
     </tr>
   </tbody>
 
