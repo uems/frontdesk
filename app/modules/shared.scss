@@ -5,6 +5,15 @@ $pending-bg: lightyellow;
 
 $loading: url(/ajax-loader.gif);
 
+kbd {
+  padding: 0.3rem 0.5rem;
+  background: gray;
+  color: lightgray;
+  border-radius: 5px;
+  min-width: 1rem;
+  display: inline-block;
+}
+
 @mixin in-out($from, $to) {
   &.ng-enter {
     -webkit-animation: fadeIn#{$from}Big $transition;

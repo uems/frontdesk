@@ -10,6 +10,7 @@ main.person {
     position: relative;
     width: 45rem;
     float: left;
+    border-bottom: 1px solid green;
 
     &.pending {
       background: $pending-bg;
@@ -37,16 +38,14 @@ main.person {
       position: absolute;
       top: 0.2rem;
       width: 34rem;
-      height: 4rem;
       left: 7rem;
       text-overflow: ellipsis;
       overflow: hidden;
       &:hover {
         overflow: visible;
         z-index: 9;
-        height: 6rem;
+        height: auto;
         background: inherit;
-        border-bottom: 1px solid green
       }
     }
     h2 {
@@ -80,7 +79,6 @@ main.person {
     width: 23rem;
     padding: 0 1rem;
     margin: 0px;
-    border-left: 1px solid gray;
 
     &.loading td {
       background: url(/ajax-loader.gif) no-repeat left;
