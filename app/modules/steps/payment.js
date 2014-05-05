@@ -22,14 +22,14 @@ angular
     $scope.focusProof     = _.partial(focus, 'proof');
 
     $scope.money = function() {
-      $scope.fastForward('person.paymentMoney');
+      $scope.fastForward('person.fill_category');
     };
     $scope.promocode = function() {
-      $scope.fastForward('person.paymentPromocode');
+      $scope.fastForward('person.payment_promocode');
     };
 
     $scope.proof = function() {
-      $scope.fastForward('person.paymentProof');
+      $scope.fastForward('person.payment_proof');
     };
 
     People.get(locator).$promise.then(function(person) {
@@ -40,9 +40,9 @@ angular
       $scope.step = {
         xid: person.xid,
       };
+      $scope.focusMoney();
     });
 
-    $scope.focusProof();
   })
   .config(function($stateProvider) {
     $stateProvider

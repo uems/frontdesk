@@ -14,7 +14,6 @@ angular
 
     $scope.categories = [ 'Estudante', 'Participante', 'Caravaneiro' ];
     $scope.prices = _.chain($scope.categories).zip([150,300,150]).object().value();
-    console.log($scope.prices);
 
     $scope.selectCategory = function(ev, index) {
       $scope.step.category = $scope.categories[index];

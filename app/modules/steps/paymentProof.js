@@ -29,12 +29,12 @@ angular
     };
 
     People.get(locator).$promise.then(function(person) {
-      $scope.tickets = person.pendingTickets;
-      $scope.notFound = person.pendingTickets.length === 0;
+      $scope.boletoTickets = _(person.pendingTickets).where({ method: 'boleto' });
+      $scope.notFound      = _($scope.boletoTickets).isEmpty();
       $scope.step = {
         xid: person.xid,
       };
-      if (!person.pendingTickets.length) {
+      if ($scope.notFound) {
         return $timeout(function() { $scope.fastForward('person.payment'); }, 5000);
       }
       $scope.focusFirstTicket();
@@ -42,8 +42,8 @@ angular
   })
   .config(function($stateProvider) {
     $stateProvider
-      .state('person.paymentProof', {
-        url: '^/person/:xid/payment/proof',
+      .state('person.payment_proof', {
+        url: '^/person/:xid/payment-proof',
         views: {
           step: { controller: 'PaymentProofCtrl', templateUrl: 'modules/steps/paymentProof.html' }
         }

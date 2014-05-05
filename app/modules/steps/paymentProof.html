@@ -21,7 +21,7 @@
       <th>valor</th>
       <th>situação</th>
     </tr>
-    <tr ng-repeat="ticket in tickets">
+    <tr ng-repeat="ticket in boletoTickets">
       <td class="action">
         <input type="radio" value="{{ ticket.id }}"
                ng-change="focusAccept()"
