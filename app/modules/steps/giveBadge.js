@@ -29,7 +29,7 @@ angular
 
     $scope.given = function() {
       People.giveBadge(locator, $scope.step, function() {
-        $scope.fastForward('home');
+        $scope.fastForward('person.done');
       });
     };
 
