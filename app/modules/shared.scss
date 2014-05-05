@@ -3,6 +3,8 @@ $transition: 1s;
 $valid-bg: lightgreen;
 $pending-bg: lightyellow;
 
+$loading: url(/ajax-loader.gif);
+
 @mixin in-out($from, $to) {
   &.ng-enter {
     -webkit-animation: fadeIn#{$from}Big $transition;

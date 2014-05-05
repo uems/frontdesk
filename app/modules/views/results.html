@@ -1,4 +1,18 @@
-<ul>
+<header ng-show="!results.length && !loading">
+  <h1>
+    ☹
+  </h1>
+  <h1>
+    nenhum resultado encontrado
+  </h1>
+  <small>
+    <b>não é necessário digitar o nome completo,</b><br/>
+    em geral basta digitar o primeiro nome<br/>
+    ou um dos sobrenomes do participante
+  </small>
+</header>
+
+<ul ng-class="{ loading: loading }">
   <li ng-repeat="person in results | orderBy:validness:true"
       ui-sref="person({ xid: person.xid })"
       ng-class="{ valid:   person.validTickets.length,

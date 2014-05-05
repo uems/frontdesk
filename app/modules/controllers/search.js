@@ -11,6 +11,11 @@ angular
   ])
   .controller('SearchCtrl', function($scope, $state, $stateParams, People, focus) {
     focus('search');
+    $scope.loading = true;
+
+    function ready() {
+      $scope.loading = false;
+    }
 
     $scope.validness = function(person) {
       return ((person.validTickets.length) * 10) +
@@ -24,7 +29,7 @@ angular
 
     if ($stateParams.query) {
       $scope.query = $stateParams.query;
-      $scope.results = People.query({ q: $scope.query });
+      $scope.results = People.query({ q: $scope.query }, ready);
     }
 
   });

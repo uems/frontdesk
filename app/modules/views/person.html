@@ -1,10 +1,15 @@
 <header ng-class="{ loading: !person,
                     valid: person.validTickets,
                     pending: person.pendingTickets || person.payableTicket }">
+  <a ng-href="{{ person.uri }}" target="_blank">debug</a>
   <img gravatar-src="person.email" gravatar-size="100">
   <h1>{{ person.name }}</h1>
-  <p>{{ person.xid }}</p>
-  <a ng-href="{{ person.uri }}" target="_blank">debug</a>
+  <h2>{{ person.xid }}</h2>
+  <h3>
+    {{ person.category }} -
+    <span ng-show="person.validTickets">entrada autorizada</span>
+    <span ng-hide="person.validTickets">entrada pendente</span>
+  </h3>
 </header>
 
 <table ng-class="{ loading: !person }">

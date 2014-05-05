@@ -4,11 +4,29 @@ main.search {
   @include in-out(Left,Left);
   padding-top: 1rem;
 
+  header {
+    margin-top: 5rem;
+    text-align: center;
+
+    h1 {
+      font-size: 300%;
+    }
+    small {
+      display: inline-block;
+      width: 25rem;
+    }
+  }
+
   ul {
     width: auto;
     margin: 0 5%;
     padding: 0;
     position: relative;
+
+    &.loading {
+      min-height: 20rem;
+      background: $loading no-repeat center center;
+    }
 
     li {
       margin: 0.4rem 1rem;

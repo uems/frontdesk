@@ -6,6 +6,11 @@ main.person {
   padding: 2rem 4rem;
 
   header {
+    min-height: 100px;
+    position: relative;
+    width: 45rem;
+    float: left;
+
     &.pending {
       background: $pending-bg;
     }
@@ -15,9 +20,6 @@ main.person {
     &.loading {
       background: url(/ajax-loader.gif) no-repeat right;
     }
-    height: 100px;
-    width: 45rem;
-    float: left;
 
     button {
       float: right;
@@ -29,13 +31,41 @@ main.person {
     }
 
     h1 {
+      padding: 0;
+      margin: 0;
       font-size: 200%;
-      padding: 0;
-      margin: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      position: absolute;
+      top: 0.2rem;
+      left: 7rem;
+      &:hover {
+        white-space: normal;
+      }
     }
-    p {
+    h2 {
+      font-size: 160%;
+      position: absolute;
+      bottom: 0rem;
+      left: 7rem;
       margin: 0;
       padding: 0;
+    }
+    h3 {
+      font-size: 160%;
+      position: absolute;
+      bottom: 0rem;
+      right: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      float: right;
+      text-decoration: none;
+      padding: 0.2rem;
+      background: gray;
+      color: white;
     }
   }
 
