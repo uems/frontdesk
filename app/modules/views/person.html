@@ -1,7 +1,10 @@
 <header ng-class="{ loading: !person,
                     valid: person.validTickets.length,
                     pending: person.pendingTickets || person.payableTicket }">
-  <a ng-href="{{ person.uri }}" target="_blank">debug</a>
+  <div>
+    <a ng-href="{{ person.uri }}" target="_blank">debug</a>
+    <a ui-sref="person({xid: person.xid})" target="_blank">reload</a>
+  </div>
   <img gravatar-src="person.email" gravatar-size="100">
   <h1>{{ person.name }}</h1>
   <h2>{{ person.xid }}</h2>

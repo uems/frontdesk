@@ -65,12 +65,17 @@ main.person {
       margin: 0;
       padding: 0;
     }
-    a {
+    div {
       float: right;
-      text-decoration: none;
-      padding: 0.2rem;
-      background: gray;
-      color: white;
+      width: 3rem;
+      a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 0.2rem;
+        margin-bottom: 0.2rem;
+        background: gray;
+        color: white;
+      }
     }
   }
 
