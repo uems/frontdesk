@@ -19,7 +19,7 @@ angular
         name: person.name
       };
 
-      $scope.commitName = lazyCommit(People.setName, locator, 'person.fill_email', person, $scope, 'name');
+      $scope.commitName = lazyCommit(People.setName, locator, 'person.fill_country', person, $scope, 'name');
     });
   })
   .config(function($stateProvider) {

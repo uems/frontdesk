@@ -24,7 +24,7 @@ angular
         document: person.document
       };
 
-      $scope.commitDocument = lazyCommit(People.setDocument, locator, 'person.fill_badge_name', person, $scope, 'document');
+      $scope.commitDocument = lazyCommit(People.setDocument, locator, 'person', person, $scope, 'document');
     });
   })
   .config(function($stateProvider) {
