@@ -1,0 +1,56 @@
+<form class="fill paymentProof">
+  <h3>
+    apresentação de comprovante de pagamento
+  </h3>
+  <h5>
+    selecione o boleto cujo comprovante
+    foi apresentado na lista abaixo
+  </h5>
+
+  <table>
+    <tr>
+      <th></th>
+      <th>id</th>
+      <th>emissão</th>
+      <th>vencimento</th>
+      <th>valor</th>
+      <th>situação</th>
+    </tr>
+    <tr ng-repeat="ticket in tickets">
+      <td class="action">
+        <input type="radio" value="{{ ticket.id }}"
+               ng-change="focusAccept()"
+               ng-model="step.proofFor"
+               focus-on="ticket-{{$index}}" />
+      </td>
+      <td class="id">
+        {{ ticket.id }}
+      </td>
+      <td class="date">
+        {{ ticket.creation_date }}
+      </td>
+      <td class="date">
+        {{ ticket.expiry_date }}
+      </td>
+      <td class="price">
+        {{ ticket.price }}
+      </td>
+      <td class="status">
+        {{ ticket.status }}
+      </td>
+    </tr>
+  </table>
+
+  <button ui-keydown="{ 'down': 'focusBack($event)' }"
+          ng-click="accept()"
+          ng-disabled="!step.proofFor"
+          focus-on="accept">
+    comprovante aceito
+  </button>
+  <button ui-keydown="{ 'up': 'focusAccept($event)' }"
+          ng-click="back()"
+          focus-on="back">
+    voltar
+  </button>
+
+</form>

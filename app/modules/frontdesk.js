@@ -18,6 +18,7 @@ angular
     'fd.steps.printBadge',
     'fd.steps.giveBadge',
     'fd.steps.payment',
+    'fd.steps.paymentProof',
     'ui.router',
     'ui.router.compat',
     'templates',

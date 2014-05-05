@@ -14,7 +14,8 @@ angular
       'setBadgeCorp':  { method: 'POST', url: endpoint+'/set-badge-corp' },
       'setCountry':    { method: 'POST', url: endpoint+'/set-country' },
       'setCategory':   { method: 'POST', url: endpoint+'/set-category' },
-      'giveBadge':     { method: 'POST', url: endpoint+'/give-badge' }
+      'giveBadge':     { method: 'POST', url: endpoint+'/give-badge' },
+      'acceptProof':   { method: 'POST', url: endpoint+'/accept-proof' }
     };
     return $resource(endpoint, paramDefaults, actions);
   });

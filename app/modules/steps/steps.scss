@@ -20,7 +20,7 @@
     }
   }
 
-  .fill_country, .fill_category, .payment, .give_badge {
+  .fill_country, .fill_category, .payment, .give_badge, .paymentProof {
     padding: 0;
     h2, h3 {
       margin: 0;
@@ -44,6 +44,34 @@
         font-size: xx-large;
         color: blue;
         position: absolute;
+      }
+    }
+  }
+
+  .paymentProof {
+    table {
+      margin: 0 5rem 2rem 5rem;
+      display: block;
+      width: auto;
+      height: 10rem;
+      border: 1px solid gray;
+      overflow: scroll;
+
+      tr:first-child {
+        font-size: x-small;
+        background: lightyellow;
+        th {
+          border-bottom: 1px solid gray;
+        }
+      }
+      td {
+        &.action { width: 5%;  }
+        &.id     { width: 5%;  }
+        &.date   { width: 25%; }
+        &.price  { width: 15%; }
+        &.status { width: 15%; }
+
+        font-size: x-small;
       }
     }
   }
