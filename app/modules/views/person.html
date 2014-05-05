@@ -77,8 +77,8 @@
       <td ng-class="{ empty: !person.badgeCorp }">{{ person.badgeCorp }}</td>
     </tr>
     <tr ng-click="fastForward('person.print_badge')">
-      <th>impresso?</th>
-      <td></td>
+      <th ng-class="{ done:   person.badgePrinted.location }">impresso?</th>
+      <td ng-class="{ empty: !person.badgePrinted.location }">{{ person.badgePrinted.location }}</td>
     </tr>
     <tr ng-click="fastForward('person.give_badge')">
       <th>entregue?</th>

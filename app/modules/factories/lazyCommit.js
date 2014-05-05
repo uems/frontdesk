@@ -11,7 +11,7 @@ angular
           scope.fastForward(nextState);
         }
         else {
-          console.log('commiting changes on ', field);
+          console.log('commiting changes on', field);
           commitFn(locator, scope.step, function() { scope.reload(nextState); });
         }
       };

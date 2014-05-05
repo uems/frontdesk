@@ -51,6 +51,9 @@ angular
           $state.go('person');
         }
         else if ($state.is('person')) {
+          $state.go(decideState());
+        }
+        else {
           $state.go(nextState || decideState());
         }
       });
