@@ -1,0 +1,4 @@
+---
+
+app_path: /var/www/frontdesk
+gateway_host: http://10.5.0.85:2000

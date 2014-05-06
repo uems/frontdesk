@@ -1,9 +1,9 @@
 'use strict';
 
 angular
-  .module('fd.services.people', [ 'ngResource' ])
-  .service('People', function($resource) {
-    var endpoint = 'http://localhost:2000/people/:xid';
+  .module('fd.services.people', [ 'ngResource', 'fd.config' ])
+  .service('People', function($resource, GatewayHost) {
+    var endpoint = GatewayHost+'/people/:xid';
     var paramDefaults = { xid: '@xid', printer: '@printer' };
     var actions = {
       'printBoth':     { method: 'POST', url: endpoint+'/print-both/:printer' },

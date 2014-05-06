@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title ng-bind="pageTitle">Loading...</title>
-    <script src='config.js'></script>
     <!-- inject:vendor:css -->
     <!-- endinject -->
     <!-- inject:custom:css -->
@@ -14,6 +13,7 @@
     <!-- endinject -->
     <!-- inject:templates:js -->
     <!-- endinject -->
+    <script src='config.js'></script>
   </head>
   <body ng-controller="FrontdeskCtrl">
     <header class="{{ topState }}" ui-view="header">
