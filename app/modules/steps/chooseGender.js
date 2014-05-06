@@ -1,14 +1,14 @@
 'use strict';
 
 angular
-  .module('fd.steps.fillGender', [
+  .module('fd.steps.chooseGender', [
     'fd.services.people',
     'fd.directives.focusOn',
     'fd.factories.lazyCommit',
     'ui.router',
     'ui.keypress',
   ])
-  .controller('FillGenderCtrl', function($scope, $state, People, person, focus, lazyCommit) {
+  .controller('ChooseGenderCtrl', function($scope, $state, People, person, focus, lazyCommit) {
     var locator = { xid: person.xid };
 
     $scope.step = {
@@ -36,17 +36,17 @@ angular
     var currentGender = $scope.gendersValues.indexOf(person.gender);
     focus('gender-' + currentGender);
     
-    $scope.commitGender = lazyCommit(People.setGender, locator, 'person.payment', person, $scope, 'gender');
+    $scope.commitGender = lazyCommit(People.setGender, locator, 'person.payment_pending', person, $scope, 'gender');
   })
   .config(function($stateProvider) {
     $stateProvider
-      .state('person.fill_gender', {
-        url: '^/person/:xid/fill-gender',
+      .state('person.choose_gender', {
+        url: '^/person/:xid/choose-gender',
         resolve: {
           person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
         },
         views: {
-          step: { controller: 'FillGenderCtrl', templateUrl: 'modules/steps/fillGender.html' }
+          step: { controller: 'ChooseGenderCtrl', templateUrl: 'modules/steps/chooseGender.html' }
         }
       });
   });

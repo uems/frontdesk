@@ -40,7 +40,7 @@
       <th ng-class="{ done:   person.document }">cpf</th>
       <td ng-class="{ empty: !person.document }">{{ person.document || 'não informado'}}</td>
     </tr>
-    <tr ng-click="fastForward('person.fill_gender')">
+    <tr ng-click="fastForward('person.choose_gender')">
       <th ng-class="{ done:   person.gender }"  >sexo</th>
       <td ng-class="{ empty: !person.gender }"  >{{ person.gender || 'não informado' }}</td>
     </tr>

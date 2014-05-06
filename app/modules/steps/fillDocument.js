@@ -15,7 +15,7 @@ angular
 
     focus('document');
 
-    $scope.commitDocument = lazyCommit(People.setDocument, locator, 'person.fill_gender', person, $scope, 'document');
+    $scope.commitDocument = lazyCommit(People.setDocument, locator, 'person.choose_gender', person, $scope, 'document');
   })
   .config(function($stateProvider) {
     $stateProvider
