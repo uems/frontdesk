@@ -17,20 +17,16 @@
 
 <table ng-class="{ loading: !person }">
   <tbody>
-    <tr ng-click="fastForward('person.fill_name')">
+    <tr ng-click="fastForward('person.fill_email')">
       <th colspan="2">dados básicos</th>
-    </tr>
-    <tr ng-click="fastForward('person.fill_name')">
-      <th ng-class="{ done:   person.name }"    >nome</th>
-      <td ng-class="{ empty: !person.name }"    >{{ person.name     || 'não informado' }}</td>
-    </tr>
-    <tr ng-click="fastForward('person.fill_document')">
-      <th ng-class="{ done:   person.document }">cpf</th>
-      <td ng-class="{ empty: !person.document }">{{ person.document || 'não informado'}}</td>
     </tr>
     <tr ng-click="fastForward('person.fill_email')">
       <th ng-class="{ done:   person.email }"   >email</th>
       <td ng-class="{ empty: !person.email }"   >{{ person.email    || 'não informado' }}</td>
+    </tr>
+    <tr ng-click="fastForward('person.fill_name')">
+      <th ng-class="{ done:   person.name }"    >nome</th>
+      <td ng-class="{ empty: !person.name }"    >{{ person.name     || 'não informado' }}</td>
     </tr>
     <tr ng-click="fastForward('person.fill_country')">
       <th ng-class="{ done:   person.country }" >país</th>
@@ -39,6 +35,10 @@
     <tr ng-click="fastForward('person.fill_city')" ng-hide="isForeign">
       <th ng-class="{ done:   person.city }"    >cidade</th>
       <td ng-class="{ empty: !person.city }"    >{{ person.city || 'não informado' }}</td>
+    </tr>
+    <tr ng-click="fastForward('person.fill_document')">
+      <th ng-class="{ done:   person.document }">cpf</th>
+      <td ng-class="{ empty: !person.document }">{{ person.document || 'não informado'}}</td>
     </tr>
     <tr ng-click="fastForward('person.fill_gender')">
       <th ng-class="{ done:   person.gender }"  >sexo</th>

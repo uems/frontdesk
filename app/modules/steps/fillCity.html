@@ -1,0 +1,10 @@
+<form class="fill fill_city">
+  <h3>
+    solicite a cidade do participante!
+  </h3>
+
+  <input type="text"
+         ng-model="step.city"
+         ui-keypress="{ 13: 'commitCity($event)' }"
+         focus-on="city" />
+</form>

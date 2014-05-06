@@ -29,7 +29,7 @@ angular
       focus('country-'+(current+1));
     };
 
-    $scope.commitCountry = lazyCommit(People.setCountry, locator, 'person.fill_document', person, $scope, 'country');
+    $scope.commitCountry = lazyCommit(People.setCountry, locator, 'person.fill_city', person, $scope, 'country');
 
     var index = $scope.countries.indexOf(person.country);
     if ((index < 0) && (person.country)) {

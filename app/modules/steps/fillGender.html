@@ -1,0 +1,18 @@
+<form class="fill fill_gender">
+  <h3>
+    Qual é o sexo do participante?
+  </h3>
+  <h4>
+    use <kbd>&#8593;</kbd> e <kbd>&#8595;</kbd> para trocar de opção e
+    <kbd>enter</kbd> para selecionar
+  </h4>
+
+  <button type="button"
+          ng-repeat="gender in genders"
+          ng-click="selectGender($event, $index)"
+          ui-keydown="{ 'up': 'focusPrev($index)', 'down': 'focusNext($index)'}"
+          focus-on="gender-{{ $index }}">
+    {{ gender }}
+  </button>
+
+</form>
