@@ -39,14 +39,17 @@ angular
 
     $scope.demand = function(testObject, raise) {
       $scope.validState = false;
-      if (_(testObject).isEmpty()) {
+      var testPasses = (testObject === true) || (!_.isEmpty(testObject));
+      console.log(testPasses);
+      if (testPasses) {
+        $scope.validState = true;
+      }
+      else if (raise) {
         $scope.reload();
-        if (raise) {
-          throw 'invalid state';
-        }
+        throw 'invalid state';
       }
       else {
-        $scope.validState = true;
+        $scope.reload();
       }
     };
 
