@@ -16,7 +16,7 @@ angular
 
     focus('badgeCorp');
 
-    $scope.commitBadgeCorp = lazyCommit(People.setBadgeCorp, locator, 'person.print_badge', person, $scope, 'badgeCorp');
+    $scope.commitBadgeCorp = lazyCommit(People.setBadgeCorp, locator, 'person.payment_money', person, $scope, 'badgeCorp');
   })
   .config(function($stateProvider) {
     $stateProvider

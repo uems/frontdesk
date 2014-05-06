@@ -26,7 +26,7 @@ angular
         return 'person.fill_email';
       }
       else if (needsTicket) {
-        return 'person.payment';
+        return 'person.payment_pending';
       }
       else if (needsPrint) {
         return 'person.fill_badge_name';
@@ -40,7 +40,6 @@ angular
     $scope.demand = function(testObject, raise) {
       $scope.validState = false;
       var testPasses = (testObject === true) || (!_.isEmpty(testObject));
-      console.log(testPasses);
       if (testPasses) {
         $scope.validState = true;
       }
@@ -69,8 +68,8 @@ angular
         else if ($state.is('person')) {
           $state.go(decideState());
         }
-        else {
-          $state.go(nextState || decideState());
+        else if (nextState) {
+          $state.go(nextState);
         }
       });
     };

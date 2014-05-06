@@ -2,14 +2,14 @@
 'use strict';
 
 angular
-  .module('fd.steps.payment', [
+  .module('fd.steps.paymentPending', [
     'fd.services.people',
     'fd.directives.focusOn',
     'fd.factories.lazyCommit',
     'ui.router',
     'ui.keypress',
   ])
-  .controller('PaymentCtrl', function($scope, $state, People, person, focus) {
+  .controller('PaymentPendingCtrl', function($scope, $state, People, person, focus) {
     $scope.step = { xid: person.xid };
 
     $scope.focusMoney     = _.partial(focus, 'money');
@@ -34,13 +34,13 @@ angular
   })
   .config(function($stateProvider) {
     $stateProvider
-      .state('person.payment', {
-        url: '^/person/:xid/payment',
+      .state('person.payment_pending', {
+        url: '^/person/:xid/payment-pending',
         resolve: {
           person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
         },
         views: {
-          step: { controller: 'PaymentCtrl', templateUrl: 'modules/steps/payment.html' }
+          step: { controller: 'PaymentPendingCtrl', templateUrl: 'modules/steps/paymentPending.html' }
         }
       });
   });

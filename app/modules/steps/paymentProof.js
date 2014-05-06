@@ -3,7 +3,6 @@
 
 angular
   .module('fd.steps.paymentProof', [
-    'fd.steps.payment',
     'fd.services.people',
     'fd.directives.focusOn',
     'fd.factories.lazyCommit',
@@ -43,7 +42,7 @@ angular
   .config(function($stateProvider) {
     $stateProvider
       .state('person.payment_proof', {
-        url: '^/person/:xid/payment-proof',
+        url: '^/person/:xid/payment/proof',
         resolve: {
           person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
         },

@@ -37,7 +37,7 @@ angular
       category: person.category,
     };
 
-    $scope.commitCategory = lazyCommit(People.setCategory, locator, 'person.give_badge', person, $scope, 'category');
+    $scope.commitCategory = lazyCommit(People.setCategory, locator, 'person.payment_money', person, $scope, 'category');
   })
   .config(function($stateProvider) {
     $stateProvider

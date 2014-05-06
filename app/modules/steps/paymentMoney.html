@@ -1,0 +1,28 @@
+<form class="choose paymentMoney">
+  <h2>
+    solicite o valor abaixo
+  </h2>
+
+  <h1>
+    R$ {{ step.ticket.price }}.00
+  </h1>
+
+  <h4>
+    use <kbd>&#8593;</kbd> e <kbd>&#8595;</kbd> para trocar de método<br/>
+    de pagamento, <kbd>enter</kbd> para selecionar
+  </h4>
+
+
+
+  <button ui-keydown="{ 'down': 'focusBack($event)' }"
+          ng-click="accept()"
+          focus-on="accept">
+    recebido
+  </button>
+  <button ui-keydown="{ 'up': 'focusAccept($event)' }"
+          ng-click="back()"
+          focus-on="back">
+    não recebido
+  </button>
+
+</form>

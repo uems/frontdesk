@@ -15,7 +15,7 @@ angular
     var hasPromocode = !_(person.promotionalCode).isEmpty();
 
     if (hasPromocode) {
-      $scope.fastForward('person.payment');
+      $scope.fastForward('person.payment_pending');
     }
 
     focus('hash');
@@ -27,7 +27,7 @@ angular
 
     $scope.applyPromocode = function() {
       People.applyPromocode(locator, $scope.step, function() {
-        $scope.reload('person.payment');
+        $scope.reload('person');
       }, function(response) {
         $scope.error = response.data.err;
       });
@@ -37,7 +37,7 @@ angular
   .config(function($stateProvider) {
     $stateProvider
       .state('person.payment_promocode', {
-        url: '^/person/:xid/payment-promocode',
+        url: '^/person/:xid/payment/promocode',
         resolve: {
           person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; }
         },
