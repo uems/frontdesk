@@ -18,6 +18,7 @@ angular
       'setCategory':   { method: 'POST', url: endpoint+'/set-category' },
       'giveBadge':     { method: 'POST', url: endpoint+'/give-badge' },
       'acceptProof':   { method: 'POST', url: endpoint+'/accept-proof' },
+      'acceptMoney':   { method: 'POST', url: endpoint+'/accept-money' },
       'applyPromocode':{ method: 'POST', url: endpoint+'/apply-promocode' }
     };
 

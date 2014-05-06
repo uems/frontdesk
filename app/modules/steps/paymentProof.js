@@ -29,9 +29,7 @@ angular
 
     $scope.boletoTickets = _(person.pendingTickets).where({ method: 'boleto' });
     $scope.notFound      = _($scope.boletoTickets).isEmpty();
-    $scope.step = {
-      xid: person.xid,
-    };
+    $scope.step = { xid: person.xid };
 
     if ($scope.notFound) {
       return $timeout(function() { $scope.fastForward('person.payment'); }, 5000);

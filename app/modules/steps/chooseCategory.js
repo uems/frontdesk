@@ -29,6 +29,10 @@ angular
       focus('category-'+(current+1));
     };
 
+    $scope.back = function() {
+      $scope.reload('person.payment_pending');
+    };
+
     var index = Math.max($scope.categories.indexOf(person.category), 0);
     focus('category-'+index);
 

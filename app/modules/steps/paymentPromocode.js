@@ -25,6 +25,10 @@ angular
       hash: null
     };
 
+    $scope.back = function() {
+      $scope.reload('person.payment_pending');
+    };
+
     $scope.applyPromocode = function() {
       People.applyPromocode(locator, $scope.step, function() {
         $scope.reload('person');
