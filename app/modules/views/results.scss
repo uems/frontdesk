@@ -47,20 +47,16 @@ main.search {
       &.valid {
         background: $valid-bg;
       }
-      &.focused {
-        outline: 0px;
+      &:focus {
+        outline: 5px solid black;
         &:before {
           content: '❯';
-          top: 1.7rem;
-          left: -1.5rem;
-          font-size: xx-large;
-          color: blue;
+          top: 1rem;
+          left: -2.5rem;
+          font-size: 500%;
+          color: black;
           position: absolute;
         }
-      }
-
-      &:hover {
-        box-shadow: 0px 0px 6px 6px orange;
       }
 
       .empty {

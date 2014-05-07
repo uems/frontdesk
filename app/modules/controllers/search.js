@@ -40,6 +40,14 @@ angular
       $state.go('search', { query: $scope.query });
     };
 
+    $scope.focusSearch = function() {
+      focus('search');
+    };
+    $scope.focusFirstResult = function() {
+      if ($scope.results.length) {
+        focus('result-0');
+      }
+    };
     $scope.focusUp    = moveFocus(-2);
     $scope.focusDown  = moveFocus(+2);
     $scope.focusLeft  = moveFocus(-1);
