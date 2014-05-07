@@ -1,0 +1,26 @@
+@import 'modules/shared';
+
+main.payments {
+  h2 {
+    text-align: right;
+    font-size: x-large;
+    background: lightgray;
+    position: fixed;
+    width: 80%;
+    margin: 0;
+    padding: 1rem;
+  }
+  table {
+    margin-top: 4rem;
+    width: 90%;
+    tr {
+      td {
+        padding: 0.2rem;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}

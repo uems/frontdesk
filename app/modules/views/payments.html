@@ -1,0 +1,21 @@
+<h2>
+  R$ {{ sum() }}
+</h2>
+<table>
+  <tr>
+    <th>horário</th>
+    <th>preço</th>
+    <th>pago</th>
+    <th>id</th>
+    <th>name</th>
+    <th>category</th>
+  </tr>
+  <tr ng-repeat="payment in payments">
+    <td style="width: 10em">{{ payment.when.split("T")[1].split(".")[0] }}</td>
+    <td style="width: 10em">R$ {{ payment.price }}</td>
+    <td style="width: 10em">R$ {{ payment.paid }}</td>
+    <td style="width: 10em" >{{ payment.xid }}</td>
+    <td style="width: 20em">{{ payment.name }}</td>
+    <td style="width: 10em">{{ payment.category }}</td>
+  </tr>
+</table>

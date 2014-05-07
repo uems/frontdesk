@@ -10,6 +10,7 @@ angular
     'fd.controllers.person',
     'fd.controllers.create',
     'fd.controllers.single',
+    'fd.controllers.payments',
     'fd.controllers.printer',
     'fd.steps.fillName',
     'fd.steps.fillEmail',
@@ -78,6 +79,13 @@ angular
         views: {
           header: { controller: 'NavCtrl',    templateUrl: 'modules/views/nav.html' },
           main:   { controller: 'CreateCtrl', templateUrl: 'modules/views/create.html' }
+        }
+      })
+      .state('payments', {
+        url: '^/payments/:ip',
+        views: {
+          header: { controller: 'NavCtrl',      templateUrl: 'modules/views/nav.html' },
+          main:   { controller: 'PaymentsCtrl', templateUrl: 'modules/views/payments.html' }
         }
       })
       .state('single', {
