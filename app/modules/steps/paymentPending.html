@@ -2,26 +2,48 @@
   <h3>
     participante com inscrição pendente de pagamento
   </h3>
-  <h4>
+  <h4 ng-show="person.payableTicket">
     use <kbd>&#8593;</kbd> e <kbd>&#8595;</kbd> para trocar de método<br/>
     de pagamento, <kbd>enter</kbd> para selecionar
   </h4>
 
+  <h5 ng-hide="person.payableTicket">
+    Esta pessoa não está habilitada para pagamento.
+  </h5>
+
+  <table ng-hide="person.payableTicket">
+    <tr>
+      <td>categoria</td>
+      <td>{{ person.category }}</td>
+    </tr>
+    <tr>
+      <td>empresa</td>
+      <td>{{ person.corpData.legalName || '---' }}</td>
+    </tr>
+    <tr>
+      <td>situação</td>
+      <td>{{ person.corpData.status || '---'}}</td>
+    </tr>
+  </table>
+
   <button type="button"
           ng-click="money()"
           ui-keydown="{ 'down': 'focusPromocode($event)' }"
+          ng-show="person.payableTicket"
           focus-on="money">
     em dinheiro
   </button>
   <button type="button"
           ng-click="promocode()"
           ui-keydown="{ 'down': 'focusProof($event)', 'up': 'focusMoney($event)' }"
+          ng-show="person.payableTicket"
           focus-on="promocode">
     código promocional
   </button>
   <button type="button"
           ng-click="proof()"
           ui-keydown="{ 'up': 'focusPromocode($event)' }"
+          ng-show="person.payableTicket"
           focus-on="proof">
     apresentou boleto
   </button>

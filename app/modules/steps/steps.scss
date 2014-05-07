@@ -79,6 +79,25 @@
       }
     }
   }
+  .payment {
+    table {
+      margin: 0 5rem 2rem 5rem;
+      display: block;
+      width: auto;
+      text-align: left;
+
+      td {
+        &:first-child {
+          font-weight: bold;
+        }
+        &.key    { width: 30%;  }
+        &.value  { width: 70%;  }
+
+        font-size: small;
+      }
+    }
+  }
+
 
   .fill_promocode {
     input[type=text] {
