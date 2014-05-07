@@ -20,7 +20,7 @@ angular
 
       var needsData   = _([ needsName, needsDocument, needsEmail, needsCountry ]).any();
       var needsTicket = _($scope.person.validTickets).isEmpty();
-      var needsPrint  = _($scope.person.badgePrinted).isEmpty();
+      var needsPrint  = _($scope.person.badgePrinted).isEmpty() && _($scope.person.badgeMoved).isEmpty();
 
       if (needsData) {
         return 'person.fill_email';
