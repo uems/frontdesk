@@ -48,6 +48,11 @@ angular
         focus('result-0');
       }
     };
+
+    $scope.home = function() {
+      $state.go('home');
+    };
+
     $scope.focusUp    = moveFocus(-2);
     $scope.focusDown  = moveFocus(+2);
     $scope.focusLeft  = moveFocus(-1);

@@ -1,9 +1,19 @@
 @import 'modules/shared';
 
 header.search, header.home {
+  a {
+    float: left;
+
+    img {
+      width: 60px;
+      margin: 10px;
+    }
+  }
 
   form {
     margin: 0 9% 0 5%;
+    display: inline-block;
+    width: 75%;
 
     input {
       font-size: 300%;
