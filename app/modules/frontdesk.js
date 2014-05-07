@@ -8,6 +8,7 @@ angular
     'fd.controllers.home',
     'fd.controllers.search',
     'fd.controllers.person',
+    'fd.controllers.create',
     'fd.steps.fillName',
     'fd.steps.fillEmail',
     'fd.steps.fillCountry',
@@ -59,6 +60,13 @@ angular
           header: { controller: 'SearchCtrl', templateUrl: 'modules/views/search.html' },
           main:   { controller: 'SearchCtrl', templateUrl: 'modules/views/results.html' }
         },
+      })
+      .state('create', {
+        url: '^/create',
+        views: {
+          header: { controller: 'NavCtrl',    templateUrl: 'modules/views/nav.html' },
+          main:   { controller: 'CreateCtrl', templateUrl: 'modules/views/create.html' }
+        }
       })
       .state('person', {
         url: '^/person/:xid',
