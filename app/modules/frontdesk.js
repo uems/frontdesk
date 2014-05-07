@@ -25,6 +25,7 @@ angular
     'fd.steps.paymentMoney',
     'fd.steps.paymentPromocode',
     'fd.steps.done',
+    'fd.services.flash',
     'ui.router',
     'ui.router.compat',
     'templates',

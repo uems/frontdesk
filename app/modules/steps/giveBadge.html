@@ -2,9 +2,13 @@
   <h3>
     Entregue o crachá para o participante
   </h3>
-  <h4>
+  <h4 ng-hide="flash">
     o crachá foi impresso na impressora {{ printer }}
   </h4>
+
+  <h5 ng-show="flash">
+    <b>erro:</b> {{ flash }}
+  </h5>
 
   <button type="button"
           ng-click="given()"

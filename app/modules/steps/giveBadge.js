@@ -9,8 +9,9 @@ angular
     'ui.router',
     'ui.keypress',
   ])
-  .controller('GiveBadgeCtrl', function($scope, $state, People, person, focus) {
+  .controller('GiveBadgeCtrl', function($scope, $state, People, Flash, person, focus) {
     $scope.demand(person.validTickets);
+    $scope.flash = Flash.read();
 
     var locator = { xid: person.xid };
 
@@ -33,7 +34,12 @@ angular
       });
     };
 
-    $scope.focusGiven();
+    if ($scope.flash) {
+      $scope.focusReprint();
+    }
+    else {
+      $scope.focusGiven();
+    }
   })
   .config(function($stateProvider) {
     $stateProvider
