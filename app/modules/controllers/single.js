@@ -23,6 +23,7 @@ angular
     $scope.step = {};
 
     $scope.doSingle = function() {
+      $scope.error = null;
       var badge = new Badge({ printer: currentPrinter });
       badge.reason = $scope.step.reason;
       badge.name   = $scope.step.name;
