@@ -24,7 +24,7 @@ angular
     };
 
     $scope.back = function() {
-      $scope.fastForward('person.payment');
+      $scope.fastForward('person.payment_pending');
     };
 
     $scope.boletoTickets = _(person.pendingTickets).where({ method: 'boleto' });

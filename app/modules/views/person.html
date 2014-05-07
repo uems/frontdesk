@@ -47,7 +47,7 @@
 
   </tbody>
   <tbody>
-    <tr ng-click="fastForward('person.payment')">
+    <tr ng-click="fastForward('person.payment_pending')">
       <th colspan="2">ingresso</th>
     </tr>
     <tr>
@@ -82,7 +82,7 @@
     </tr>
     <tr ng-click="fastForward('person.print_badge')">
       <th ng-class="{ done:   !person.badgePrinted.result.error }">impresso?</th>
-      <td ng-hide="person.badgePrinted.result.error">impresso em {{ person.badgePrinted.location }}</td>
+      <td ng-hide="person.badgePrinted.result.error">impressora {{ person.badgePrinted.location }}</td>
       <td ng-show="person.badgePrinted.result.error">
         erro! clique para tentar de novo
       </td>
