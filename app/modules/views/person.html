@@ -81,12 +81,21 @@
       <td ng-class="{ empty: !person.badgeCorp }">{{ person.badgeCorp }}</td>
     </tr>
     <tr ng-click="fastForward('person.print_badge')">
-      <th ng-class="{ done:   person.badgePrinted.location }">impresso?</th>
-      <td ng-class="{ empty: !person.badgePrinted.location }">{{ person.badgePrinted.location }}</td>
+      <th ng-class="{ done:   !person.badgePrinted.result.error }">impresso?</th>
+      <td ng-hide="person.badgePrinted.result.error">impresso em {{ person.badgePrinted.location }}</td>
+      <td ng-show="person.badgePrinted.result.error">
+        erro! clique para tentar de novo
+      </td>
     </tr>
+
     <tr ng-click="fastForward('person.give_badge')">
-      <th>entregue?</th>
-      <td></td>
+      <th ng-class="{ done: person.badgeGiven }">entregue?</th>
+      <td ng-show="person.badgeGiven">
+        às {{ person.badgeGiven }}
+      </td>
+      <td ng-hide="person.badgeGiven">
+        nenhuma entrega registrada
+      </td>
     </tr>
   </tbody>
 </table>

@@ -2,9 +2,16 @@
   <h3>
     Entregue o crachá para o participante
   </h3>
-  <h4 ng-hide="flash">
-    o crachá foi impresso na impressora {{ printer }}
+
+  <h4 ng-hide="person.badgeMoved || person.badgePrinted.result.error">
+    o crachá foi impresso na impressora {{ person.badgePrinted.location }}
   </h4>
+
+  <h4 ng-show="person.badgeMoved">
+    o crachá encontra-se em <b>{{ person.badgeMoved.location }}</b>
+  </h4>
+
+  {{ flash }}
 
   <h5 ng-show="flash">
     <b>erro:</b> {{ flash }}

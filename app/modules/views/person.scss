@@ -95,6 +95,10 @@ main.person {
     tr {
       height: 1.6rem;
 
+      &:hover {
+        background: #cccccc;
+      }
+
       &:first-child th {
         text-align: center;
         color: black;
