@@ -1,0 +1,15 @@
+@import 'modules/shared';
+
+main.single {
+  form {
+    h1 {
+      font-size: 300%;
+    }
+    padding: 5rem;
+    text-align: center;
+    input {
+      font-size: 250%;
+      width: 51%;
+    }
+  }
+}

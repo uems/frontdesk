@@ -9,6 +9,7 @@ angular
     'fd.controllers.search',
     'fd.controllers.person',
     'fd.controllers.create',
+    'fd.controllers.single',
     'fd.controllers.printer',
     'fd.steps.fillName',
     'fd.steps.fillEmail',
@@ -26,6 +27,7 @@ angular
     'fd.steps.paymentMoney',
     'fd.steps.paymentPromocode',
     'fd.steps.done',
+    'fd.services.badge',
     'fd.services.flash',
     'fd.services.currentPrinter',
     'ui.router',
@@ -76,6 +78,13 @@ angular
         views: {
           header: { controller: 'NavCtrl',    templateUrl: 'modules/views/nav.html' },
           main:   { controller: 'CreateCtrl', templateUrl: 'modules/views/create.html' }
+        }
+      })
+      .state('single', {
+        url: '^/single',
+        views: {
+          header: { controller: 'NavCtrl',    templateUrl: 'modules/views/nav.html' },
+          main:   { controller: 'SingleCtrl', templateUrl: 'modules/views/single.html' }
         }
       })
       .state('person', {

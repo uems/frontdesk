@@ -1,0 +1,26 @@
+<form>
+  <h1>
+    etiqueta avulsa
+  </h1>
+
+  <input ng-model="step.reason"
+         focus-on="reason"
+         placeholder="motivo / quem autorizou"
+         ui-keypress="{ 'enter': 'focusName()' }"
+        />
+  <input ng-model="step.name"
+         focus-on="name"
+         placeholder="nome para o crachá"
+         ui-keypress="{ 'enter': 'focusCorp()' }"
+        />
+  <input ng-model="step.corp"
+         focus-on="corp"
+         placeholder="empresa para o crachá"
+         ui-keypress="{ 'enter': 'doSingle()' }"
+        />
+
+
+  <h5 ng-show="error">
+    <b>erro:</b> {{ error }}</br>
+  </h5>
+</form>
