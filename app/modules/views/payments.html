@@ -12,8 +12,8 @@
   </tr>
   <tr ng-repeat="payment in payments">
     <td style="width: 10em">{{ fix(payment.when) }}
-    <td style="width: 10em">R$ {{ payment.price }}</td>
-    <td style="width: 10em">R$ {{ payment.paid }}</td>
+    <td style="width: 10em">{{ payment.price }}</td>
+    <td style="width: 10em">{{ payment.paid }}</td>
     <td style="width: 10em" >{{ payment.xid }}</td>
     <td style="width: 20em">{{ payment.name }}</td>
     <td style="width: 10em">{{ payment.category }}</td>
