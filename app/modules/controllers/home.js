@@ -10,11 +10,11 @@ angular
       $state.go('create');
     };
 
-    $scope.giveBadge = function() {
-      //Need Implement
+    $scope.singleBadge = function() {
+      $state.go('single');
     };
 
     $scope.setPrinter = function() {
-      //Need Implement
+      $state.go('printer');
     };
   });

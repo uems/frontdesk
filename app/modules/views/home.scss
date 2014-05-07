@@ -1,11 +1,8 @@
 @import 'modules/shared';
 
 main.home {
-  .option {
-    margin: 15% 10% 20% 11%;
-    
-    img {
-      width: 100%;
-     }
+  button {
+    width: 15rem;
+    height: 15rem;
   }
 }
