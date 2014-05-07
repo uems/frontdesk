@@ -1,0 +1,14 @@
+<form>
+  <h1>
+    seleção de impressoras
+  </h1>
+
+  <button ng-repeat="printer in availablePrinters"
+          ng-click="setPrinter(printer)"
+          focus-on="printer-{{$index}}"
+          ui-keydown="{ 'up':   'focusPrev($index)',
+                        'down': 'focusNext($index)' } ">
+      {{ printer }}
+  </button>
+
+</form>

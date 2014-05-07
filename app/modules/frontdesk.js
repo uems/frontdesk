@@ -9,6 +9,7 @@ angular
     'fd.controllers.search',
     'fd.controllers.person',
     'fd.controllers.create',
+    'fd.controllers.printer',
     'fd.steps.fillName',
     'fd.steps.fillEmail',
     'fd.steps.fillCountry',
@@ -26,6 +27,7 @@ angular
     'fd.steps.paymentPromocode',
     'fd.steps.done',
     'fd.services.flash',
+    'fd.services.currentPrinter',
     'ui.router',
     'ui.router.compat',
     'templates',
@@ -61,6 +63,13 @@ angular
           header: { controller: 'SearchCtrl', templateUrl: 'modules/views/search.html' },
           main:   { controller: 'SearchCtrl', templateUrl: 'modules/views/results.html' }
         },
+      })
+      .state('printer', {
+        url: '^/printer',
+        views: {
+          header: { controller: 'NavCtrl',     templateUrl: 'modules/views/nav.html' },
+          main:   { controller: 'PrinterCtrl', templateUrl: 'modules/views/printer.html' }
+        }
       })
       .state('create', {
         url: '^/create',

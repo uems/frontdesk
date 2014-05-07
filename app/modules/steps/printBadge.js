@@ -2,17 +2,20 @@
 
 angular
   .module('fd.steps.printBadge', [
+    'fd.services.currentPrinter',
     'fd.services.people',
     'fd.directives.focusOn',
     'fd.factories.lazyCommit',
     'ui.router',
     'ui.keypress',
   ])
-  .controller('PrintBadgeCtrl', function($scope, person, printer, People, Flash) {
+  .controller('PrintBadgeCtrl', function($scope, person, CurrentPrinter, People, Flash) {
     $scope.demand(person.validTickets, true);
 
+    $scope.currentPrinter = CurrentPrinter.get();
+
     // FIXME: record printer choice somewhere in the client
-    var locator = { xid: person.xid, printer: printer };
+    var locator = { xid: person.xid, printer: $scope.currentPrinter };
 
     $scope.print = function() {
       People.printBoth(locator, $scope.step, function() {
@@ -31,7 +34,6 @@ angular
         url: '^/person/:xid/print-badge',
         resolve: {
           person: function(People, $stateParams) { return People.get({ xid: $stateParams.xid }).$promise; },
-          printer: function() { return 1; }
         },
         views: {
           step: { controller: 'PrintBadgeCtrl', templateUrl: 'modules/steps/printBadge.html' }

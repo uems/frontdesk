@@ -3,7 +3,7 @@
     Entregue o crachá para o participante
   </h3>
 
-  <h4 ng-hide="person.badgeMoved || person.badgePrinted.result.error">
+  <h4 ng-hide="flash" ng-show="!person.badgePrinted.result.error && !person.badgePrinted.result.err">
     o crachá foi impresso na impressora {{ person.badgePrinted.location }}
   </h4>
 
@@ -11,10 +11,8 @@
     o crachá encontra-se em <b>{{ person.badgeMoved.location }}</b>
   </h4>
 
-  {{ flash }}
-
   <h5 ng-show="flash">
-    <b>erro:</b> {{ flash }}
+    <b>erro na impressão:</b> {{ flash }}
   </h5>
 
   <button type="button"
