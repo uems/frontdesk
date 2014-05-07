@@ -17,6 +17,19 @@ angular
       $scope.loading = false;
     }
 
+    function moveFocus(diff) {
+      return function(curr) {
+        var max = $scope.results.length;
+        var goTo = curr + diff;
+        console.log(max, curr, goTo);
+        if (goTo < 0)    { focus('search'); }
+        if (goTo >= max) { focus('result-'+max); }
+        else {
+          focus('result-'+goTo);
+        }
+      };
+    }
+
     $scope.validness = function(person) {
       return ((person.validTickets.length) * 10) +
              ((person.source === 'greve')  * 1);
@@ -26,6 +39,11 @@ angular
       if (!$scope.query) { return; }
       $state.go('search', { query: $scope.query });
     };
+
+    $scope.focusUp    = moveFocus(-2);
+    $scope.focusDown  = moveFocus(+2);
+    $scope.focusLeft  = moveFocus(-1);
+    $scope.focusRight = moveFocus(+1);
 
     if ($stateParams.query) {
       $scope.query = $stateParams.query;

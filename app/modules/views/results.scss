@@ -17,7 +17,7 @@ main.search {
     }
   }
 
-  ul {
+  form {
     width: auto;
     margin: 0 5%;
     padding: 0;
@@ -28,7 +28,9 @@ main.search {
       background: $loading no-repeat center center;
     }
 
-    li {
+    button {
+      border: 0;
+      text-align: left;
       margin: 0.4rem 1rem;
       padding: 0;
       float: left;

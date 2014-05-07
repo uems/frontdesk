@@ -12,10 +12,16 @@
   </small>
 </header>
 
-<ul ng-class="{ loading: loading }">
-  <li ng-repeat="person in results | orderBy:validness:true"
-      ui-sref="person({ xid: person.xid })"
-      ng-class="{ valid:   person.validTickets.length,
+<form ng-class="{ loading: loading }">
+  <button ng-repeat="person in results | orderBy:validness:true"
+          ui-sref="person({ xid: person.xid })"
+          focus-on="result-{{$index}}"
+          ui-keydown="{ 'enter': 'selectPerson($index)',
+                        'up':    'focusUp($index)',
+                        'down':  'focusDown($index)',
+                        'left':  'focusLeft($index)',
+                        'right': 'focusRight($index)' }"
+          ng-class="{ valid:   person.validTickets.length,
                   pending: person.pendingTickets.length || person.payableTicket }">
     <figure>
       <figcaption>{{ person.source[0]}}{{ person.id }}</figcaption>
@@ -32,6 +38,6 @@
       <span ng-show="person.validTickets">entrada autorizada</span>
       <span ng-hide="person.validTickets">entrada pendente</span>
     </p>
-  </li>
-</ul>
+  </button>
+</form>
 <br class="clear" />
