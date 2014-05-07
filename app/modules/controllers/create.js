@@ -14,8 +14,10 @@ angular
 
     $scope.doCreate = function() {
       if (!$scope.email) { return; }
-      People.create({ }, { email: $scope.email }, function(result) {
-        $state.go('person', { xid: result.xid });
+      var newPerson = new People({});
+      newPerson.email = $scope.email;
+      newPerson.$save(function(newPerson) {
+        $state.go('person', { xid: newPerson.xid });
       });
     };
   });
