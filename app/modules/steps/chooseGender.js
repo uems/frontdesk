@@ -34,6 +34,8 @@ angular
     };
 
     var currentGender = $scope.gendersValues.indexOf(person.gender);
+    if (currentGender == -1) { currentGender = 0; } // defaults for male 
+    
     focus('gender-' + currentGender);
     
     $scope.commitGender = lazyCommit(People.setGender, locator, 'person.payment_pending', person, $scope, 'gender');
