@@ -21,7 +21,7 @@ angular
     };
 
     $scope.accept = function() {
-      People.acceptMoney(locator, $scope.step, function() {
+      People.acceptCash(locator, $scope.step, function() {
         $scope.fastForward('person.fill_badge_name');
       });
     };
