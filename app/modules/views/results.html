@@ -24,7 +24,7 @@
           ng-class="{ valid:   person.validTickets.length,
                   pending: person.pendingTickets.length || person.payableTicket }">
     <figure>
-      <figcaption>{{ person.source[0]}}-{{ person.id }}</figcaption>
+      <figcaption>{{ person.source[0].toUpperCase() }}-{{ person.id }}</figcaption>
       <img gravatar-src="person.email" gravatar-size="100">
     </figure>
 

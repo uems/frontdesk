@@ -18,6 +18,8 @@ angular
       newPerson.email = $scope.email;
       newPerson.$save(function(newPerson) {
         $state.go('person', { xid: newPerson.xid });
+      }, function(response) {
+        $scope.error = response.data.err;
       });
     };
   });

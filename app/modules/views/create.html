@@ -10,4 +10,11 @@
          focus-on="email"
          ui-keypress="{ 'enter': 'doCreate()' }"
         />
+
+  <h5 ng-show="error">
+    <b>erro:</b> {{ error }}</br>
+    <small>
+      <a ui-sref="search({ query: email })">pesquisar</a>
+    </small>
+  </h5>
 </form>
