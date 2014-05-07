@@ -15,6 +15,11 @@ angular
     var locator = { ip: $stateParams.ip };
     $scope.payments = Payments.query(locator);
 
+    $scope.fix = function(d) {
+      return (new Date(d)).toLocaleTimeString();
+    };
+
+
     function summer(a,b) { return a + b; }
 
     $scope.sum = function() {

@@ -11,7 +11,7 @@
     <th>category</th>
   </tr>
   <tr ng-repeat="payment in payments">
-    <td style="width: 10em">{{ payment.when.split("T")[1].split(".")[0] }}</td>
+    <td style="width: 10em">{{ fix(payment.when) }}
     <td style="width: 10em">R$ {{ payment.price }}</td>
     <td style="width: 10em">R$ {{ payment.paid }}</td>
     <td style="width: 10em" >{{ payment.xid }}</td>
