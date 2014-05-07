@@ -34,7 +34,7 @@ angular
     };
 
     var currentGender = $scope.gendersValues.indexOf(person.gender);
-    if (currentGender == -1) { currentGender = 0; } // defaults for male 
+    if (currentGender === -1) { currentGender = 0; } // defaults for male 
     
     focus('gender-' + currentGender);
     
