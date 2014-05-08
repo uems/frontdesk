@@ -1,17 +1,39 @@
 @import 'modules/shared';
 
 main.payments {
-  h2 {
+  header {
     text-align: right;
     font-size: x-large;
     background: lightgray;
     position: fixed;
-    width: 80%;
+    width: 90%;
     margin: 0;
     padding: 1rem;
+
+    h2 {
+      float: right;
+      width: 30%;
+      text-align: right;
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      float: left;
+      label {
+        width: 7rem;
+      }
+      input {
+        width: 2rem;
+        border: transparent;
+        text-align: left;
+        font-size: x-large;
+      }
+    }
   }
   table {
-    margin-top: 4rem;
+    margin-top: 5rem;
     width: 90%;
     tr {
       td {

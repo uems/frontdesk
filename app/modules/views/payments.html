@@ -1,8 +1,31 @@
-<h2>
-  R$ {{ sum() }}
-</h2>
+<header>
+  <form>
+    <label>
+      dia
+    </label>
+    <input ng-model="query.day"   focus-on="day"   ng-blur="doQuery()"/>,
+    <label>
+      das
+    </label>
+    <input ng-model="query.start" focus-on="start"/>:00
+    <label>
+      às
+    </label>
+    <input ng-model="query.end"   focus-on="end"  />:59
+  </form>
+  <h2>
+    {{ query.operator }}
+  </h2>
+  <h2 ng-show="payments.$resolved">
+    {{ filtered.length }} resultados
+  </h2>
+  <h2 ng-show="payments.$resolved">
+    R$ {{ sum(filtered) }}
+  </h2>
+</header>
 <table>
   <tr>
+    <th>data</th>
     <th>horário</th>
     <th>preço</th>
     <th>pago</th>
@@ -10,10 +33,16 @@
     <th>name</th>
     <th>category</th>
   </tr>
-  <tr ng-repeat="payment in payments">
-    <td style="width: 10em">{{ fix(payment.when) }}
-    <td style="width: 10em">{{ payment.price }}</td>
-    <td style="width: 10em">{{ payment.paid }}</td>
+  <tr ng-hide="payments.$resolved">
+    <td colspan="5">
+      carregando...
+    </td>
+  </tr>
+  <tr ng-repeat="payment in filtered = (payments | filter:periodFilter)">
+    <td style="width: 10em">{{ date(payment.when) }}
+    <td style="width: 10em">{{ time(payment.when) }}
+    <td style="width: 10em">R$ {{ payment.price }}</td>
+    <td style="width: 10em">R$ {{ payment.paid }}</td>
     <td style="width: 10em" >{{ payment.xid }}</td>
     <td style="width: 20em">{{ payment.name }}</td>
     <td style="width: 10em">{{ payment.category }}</td>

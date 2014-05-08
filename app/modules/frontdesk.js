@@ -82,7 +82,7 @@ angular
         }
       })
       .state('payments', {
-        url: '^/payments/:ip',
+        url: '^/payments/:operator',
         views: {
           header: { controller: 'NavCtrl',      templateUrl: 'modules/views/nav.html' },
           main:   { controller: 'PaymentsCtrl', templateUrl: 'modules/views/payments.html' }
