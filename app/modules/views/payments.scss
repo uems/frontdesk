@@ -1,6 +1,26 @@
 @import 'modules/shared';
 
 main.payments {
+  fieldset {
+    font-size: xx-small;
+    dl {
+      dt {
+        float: left;
+        display: inline-block;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+      }
+      dd {
+        float: left;
+        display: inline-block;
+        margin: 0 1rem 0 0.2rem;
+        min-width: 3rem;
+        padding: 0;
+      }
+    }
+  }
+
   header {
     text-align: right;
     font-size: x-large;
@@ -12,17 +32,16 @@ main.payments {
 
     h2 {
       float: right;
-      width: 30%;
       text-align: right;
-      display: block;
-      margin: 0;
+      display: inline-block;
+      margin: 0 2rem;
       padding: 0;
     }
 
     form {
       float: left;
       label {
-        width: 7rem;
+        width: 5rem;
       }
       input {
         width: 2rem;
@@ -30,15 +49,35 @@ main.payments {
         text-align: left;
         font-size: x-large;
       }
+      select {
+        font-size: xx-large;
+      }
+
     }
   }
   table {
-    margin-top: 5rem;
+    @media screen {
+      margin-top: 5rem;
+    }
+    @media print {
+      font-size: xx-small;
+      padding: 0.3rem;
+    }
+    border-collapse: collapse;
     width: 90%;
     tr {
+      &:nth-child(odd) {
+        background: #ccc;
+      }
+      &:nth-child(1) {
+        background: black;
+        color: white;
+      }
+      th {
+        text-align: left;
+      }
       td {
         padding: 0.2rem;
-        text-align: center;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

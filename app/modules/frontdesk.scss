@@ -35,3 +35,17 @@ body {
   }
 
 }
+
+@media print {
+  .noprint {
+    display: none;
+  }
+  body > main {
+    position: relative;
+  }
+}
+@media screen {
+  .print {
+    display: none;
+  }
+}

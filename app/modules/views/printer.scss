@@ -11,7 +11,7 @@ main.printer {
     button {
       background: lightblue;
     }
-    button, input[type=text] {
+    button, input[type=text], input[type=radio] {
       font-size: xx-large;
       width: 35rem;
       position: relative;

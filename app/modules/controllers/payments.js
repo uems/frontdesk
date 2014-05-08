@@ -14,15 +14,24 @@ angular
   ])
   .controller('PaymentsCtrl', function($scope, $state, $stateParams, Operators, Payments, focus) {
     $scope.query = {
-      ip:    Operators[$stateParams.operator],
       day:   $stateParams.day,
       start: $stateParams.start,
       end:   $stateParams.end
     };
-    $scope.operator = $stateParams.operator;
+    $scope.operator = $stateParams.operator || null;
+    $scope.operators = _(Operators).keys();
+
+    $scope.issueTime = (new Date()).toLocaleString();
+
+    $scope.changeOperator = function() {
+      $state.go('payments', { operator: $scope.operator });
+    };
 
     $scope.doQuery = function() {
-      $scope.payments = Payments.query($scope.query);
+      $scope.query.ip = Operators[$stateParams.operator];
+      if ($scope.operator) {
+        $scope.payments = Payments.query($scope.query);
+      }
     };
 
     $scope.periodFilter = function (payment) {

@@ -1,5 +1,12 @@
-<header>
+<header class="noprint">
   <form>
+    <label>
+      operador
+    </label>
+    <select ng-model="operator"
+            ng-options="operator as operator for operator in operators"
+            ng-change="changeOperator()">
+    </select>
     <label>
       dia
     </label>
@@ -13,15 +20,31 @@
     </label>
     <input ng-model="query.end"   focus-on="end"  />:59
   </form>
-  <h2>
-    {{ query.operator }}
-  </h2>
   <h2 ng-show="payments.$resolved">
     {{ filtered.length }} resultados
   </h2>
   <h2 ng-show="payments.$resolved">
     R$ {{ sum(filtered) }}
   </h2>
+</header>
+<header class="print">
+  <h1>
+    Relatório de Operação de Caixa
+  </h1>
+  <fieldset>
+    <dl>
+      <dt>operador</dt>
+      <dd>{{ operator || '--'}}</dd>
+      <dt>dia</dt>
+      <dd>{{ day || '--' }}</dd>
+      <dt>hora início</dt>
+      <dd>{{ start || 7 }}:00</dd>
+      <dt>hora fim</dt>
+      <dd>{{ end || 17 }}:59</dd>
+      <dt>hora de emissão</dt>
+      <dd class="large">{{ issueTime }}</dd>
+    </dl>
+  </fieldset>
 </header>
 <table>
   <tr>
@@ -31,12 +54,7 @@
     <th>pago</th>
     <th>id</th>
     <th>name</th>
-    <th>category</th>
-  </tr>
-  <tr ng-hide="payments.$resolved">
-    <td colspan="5">
-      carregando...
-    </td>
+    <th>categoria</th>
   </tr>
   <tr ng-repeat="payment in filtered = (payments | filter:periodFilter)">
     <td style="width: 10em">{{ date(payment.when) }}
@@ -46,5 +64,10 @@
     <td style="width: 10em" >{{ payment.xid }}</td>
     <td style="width: 20em">{{ payment.name }}</td>
     <td style="width: 10em">{{ payment.category }}</td>
+  </tr>
+  <tr ng-hide="payments.$resolved">
+    <td colspan="5">
+      carregando...
+    </td>
   </tr>
 </table>

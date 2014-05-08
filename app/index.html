@@ -16,12 +16,11 @@
     <script src='config.js'></script>
   </head>
   <body ng-controller="FrontdeskCtrl">
-    {{ currentPrinter }}
-    <header class="{{ topState }}" ui-view="header">
+    <header class="noprint {{ topState }}" ui-view="header">
     </header>
     <main   class="{{ topState }}" ui-view="main">
     </main>
-    <footer>
+    <footer class="noprint">
       {{ state.name }}
     </footer>
   </body>
