@@ -22,6 +22,14 @@ main.payments {
   }
 
   header {
+    @media print {
+      position: relative;
+    }
+    h1 {
+      @media print {
+        font-size: large;
+      }
+    }
     text-align: right;
     font-size: x-large;
     background: lightgray;
