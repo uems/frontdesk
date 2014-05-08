@@ -21,7 +21,7 @@
     <input ng-model="query.end"   focus-on="end"  />:59
   </form>
   <h2 ng-show="payments.$resolved">
-    {{ filtered.length }} resultados
+    {{ filtered.length }} operações
   </h2>
   <h2 ng-show="payments.$resolved">
     R$ {{ sum(filtered) }}
@@ -31,20 +31,18 @@
   <h1>
     Relatório de Operação de Caixa
   </h1>
-  <fieldset>
-    <dl>
-      <dt>operador</dt>
-      <dd>{{ operator || '--'}}</dd>
-      <dt>dia</dt>
-      <dd>{{ day || '--' }}</dd>
-      <dt>hora início</dt>
-      <dd>{{ start || 7 }}:00</dd>
-      <dt>hora fim</dt>
-      <dd>{{ end || 17 }}:59</dd>
-      <dt>hora de emissão</dt>
-      <dd class="large">{{ issueTime }}</dd>
-    </dl>
-  </fieldset>
+  <dl>
+    <dt>operador</dt>
+    <dd>{{ operator || '--'}}</dd>
+    <dt>dia</dt>
+    <dd>{{ day || '--' }}</dd>
+    <dt>hora início</dt>
+    <dd>{{ start || 7 }}:00</dd>
+    <dt>hora fim</dt>
+    <dd>{{ end || 17 }}:59</dd>
+    <dt>hora de emissão</dt>
+    <dd class="large">{{ issueTime }}</dd>
+  </dl>
 </header>
 <table>
   <tr>
@@ -71,13 +69,14 @@
     </td>
   </tr>
 </table>
-<footer>
-  <h2>
-    valor total:
-    R$ {{ sum(filtered) }}
-  </h2>
+<footer class="print">
   <h3>
     operações:
     {{ filtered.length }}
   </h3>
+
+  <h2>
+    valor total:
+    R$ {{ sum(filtered) }}
+  </h2>
 </footer>

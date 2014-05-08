@@ -1,34 +1,38 @@
 @import 'modules/shared';
 
 main.payments {
-  fieldset {
+  footer {
+    page-break-inside: never;
+  }
+  dl {
     font-size: xx-small;
-    dl {
-      dt {
-        float: left;
-        display: inline-block;
-        font-weight: bold;
-        margin: 0;
-        padding: 0;
-      }
-      dd {
-        float: left;
-        display: inline-block;
-        margin: 0 1rem 0 0.2rem;
-        min-width: 3rem;
-        padding: 0;
-      }
+    clear: both;
+
+    dt {
+      float: left;
+      display: inline-block;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+    }
+    dd {
+      float: left;
+      display: inline-block;
+      margin: 0 1rem 0 0.2rem;
+      min-width: 3rem;
+      padding: 0;
     }
   }
 
   header {
     @media print {
       position: relative;
+      margin: 0;
     }
     h1 {
-      @media print {
-        font-size: large;
-      }
+      margin: 0;
+      text-align: left;
+      font-size: large;
     }
     text-align: right;
     font-size: x-large;
@@ -68,6 +72,7 @@ main.payments {
       margin-top: 5rem;
     }
     @media print {
+      border-top: 1px solid black;
       font-size: xx-small;
       padding: 0.3rem;
     }

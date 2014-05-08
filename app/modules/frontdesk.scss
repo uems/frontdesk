@@ -40,7 +40,11 @@ body {
   .noprint {
     display: none;
   }
+  body > header {
+    display: none;
+  }
   body > main {
+    top: 0 !important;
     position: relative;
   }
 }
