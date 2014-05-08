@@ -35,11 +35,11 @@
     <dt>operador</dt>
     <dd>{{ operator || '--'}}</dd>
     <dt>dia</dt>
-    <dd>{{ day || '--' }}</dd>
+    <dd>{{ query.day || '--' }}</dd>
     <dt>hora início</dt>
-    <dd>{{ start || 7 }}:00</dd>
+    <dd>{{ query.start || 7 }}:00</dd>
     <dt>hora fim</dt>
-    <dd>{{ end || 17 }}:59</dd>
+    <dd>{{ query.end || 17 }}:59</dd>
     <dt>hora de emissão</dt>
     <dd class="large">{{ issueTime }}</dd>
   </dl>
