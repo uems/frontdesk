@@ -10,6 +10,7 @@ angular
     'ui.router',
     'ui.gravatar',
     'ui.keypress',
+    'angularMoment',
     'ngAnimate'
   ])
   .controller('PaymentsCtrl', function($scope, $state, $stateParams, Operators, Payments, focus) {
@@ -41,14 +42,6 @@ angular
 
       return afterStartHour && beforeEndHour;
     };
-
-    $scope.date = function(d) {
-      return (new Date(d)).toLocaleDateString();
-    };
-    $scope.time = function(d) {
-      return (new Date(d)).toLocaleTimeString();
-    };
-
 
     function summer(a,b) { return a + b; }
 

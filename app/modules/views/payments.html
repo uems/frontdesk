@@ -55,8 +55,8 @@
     <th>categoria</th>
   </tr>
   <tr ng-repeat="payment in filtered = (payments | filter:periodFilter)">
-    <td style="width: 10em">{{ date(payment.when) }}
-    <td style="width: 10em">{{ time(payment.when) }}
+    <td style="width: 10em">{{ payment.when | amDateFormat:'DD/MM/YYYY' }}</td>
+    <td style="width: 10em">{{ payment.when | amDateFormat:'hh:mm:ss' }}</td>
     <td style="width: 10em">R$ {{ payment.price }}</td>
     <td style="width: 10em">R$ {{ payment.paid }}</td>
     <td style="width: 10em" >{{ payment.xid }}</td>
