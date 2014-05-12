@@ -16,7 +16,7 @@ angular
   .config(function($stateProvider) {
     $stateProvider
       .state('payments', {
-        url: '^/payments/:operator',
+        url: '^/payments/:operator/:day',
         views: {
           header: { controller: 'NavCtrl',      templateUrl: 'modules/views/nav.html' },
           main:   { controller: 'PaymentsCtrl', templateUrl: 'modules/views/payments.html' }
@@ -35,7 +35,7 @@ angular
     $scope.issueTime = (new Date()).toLocaleString();
 
     $scope.changeOperator = function() {
-      $state.go('payments', { operator: $scope.operator });
+      $state.go('payments', { operator: $scope.operator, day: $scope.query.day });
     };
 
     $scope.doQuery = function() {

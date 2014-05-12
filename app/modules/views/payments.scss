@@ -86,6 +86,13 @@ main.payments {
         background: black;
         color: white;
       }
+      &.message {
+        td {
+          padding: 5rem;
+          font-size: xx-large;
+          background: lightyellow;
+        }
+      }
       th {
         text-align: left;
       }

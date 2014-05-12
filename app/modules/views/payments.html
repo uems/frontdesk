@@ -56,15 +56,21 @@
   </tr>
   <tr ng-repeat="payment in filtered = (payments | filter:periodFilter)">
     <td style="width: 10em">{{ payment.when | amDateFormat:'DD/MM/YYYY' }}</td>
-    <td style="width: 10em">{{ payment.when | amDateFormat:'hh:mm:ss' }}</td>
+    <td style="width: 10em">{{ payment.when | amDateFormat:'HH:mm:ss' }}</td>
     <td style="width: 10em">R$ {{ payment.price }}</td>
     <td style="width: 10em">R$ {{ payment.paid }}</td>
     <td style="width: 10em" >{{ payment.xid }}</td>
     <td style="width: 20em">{{ payment.name }}</td>
     <td style="width: 10em">{{ payment.category }}</td>
   </tr>
-  <tr ng-hide="payments.$resolved">
-    <td colspan="5">
+  <tr class="message" ng-hide="operator">
+    <td colspan="7">
+      selecione um operador de caixa
+    </td>
+  </tr>
+
+  <tr class="message" ng-hide="payments.$resolved || !operator">
+    <td colspan="7">
       carregando...
     </td>
   </tr>
