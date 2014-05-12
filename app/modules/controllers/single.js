@@ -11,6 +11,16 @@ angular
     'ui.keypress',
     'ngAnimate'
   ])
+  .config(function($stateProvider) {
+    $stateProvider
+      .state('single', {
+        url: '^/single',
+        views: {
+          header: { controller: 'NavCtrl',    templateUrl: 'modules/views/nav.html' },
+          main:   { controller: 'SingleCtrl', templateUrl: 'modules/views/single.html' }
+        }
+      });
+  })
   .controller('SingleCtrl', function($scope, $state, $stateParams, CurrentPrinter, Badge, focus) {
     focus('reason');
 

@@ -9,6 +9,16 @@ angular
     'ui.keypress',
     'ngAnimate'
   ])
+  .config(function($stateProvider) {
+    $stateProvider
+      .state('search', {
+        url: '^/search/:query',
+        views: {
+          header: { controller: 'SearchCtrl', templateUrl: 'modules/views/search.html' },
+          main:   { controller: 'SearchCtrl', templateUrl: 'modules/views/results.html' }
+        },
+      });
+  })
   .controller('SearchCtrl', function($scope, $state, $stateParams, People, focus) {
     focus('search');
     $scope.loading = true;
@@ -62,5 +72,5 @@ angular
       $scope.query = $stateParams.query;
       $scope.results = People.query({ q: $scope.query }, ready);
     }
-
   });
+

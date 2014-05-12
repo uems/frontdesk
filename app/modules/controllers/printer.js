@@ -9,6 +9,16 @@ angular
     'ui.keypress',
     'ngAnimate'
   ])
+  .config(function($stateProvider) {
+    $stateProvider
+      .state('printer', {
+        url: '^/printer',
+        views: {
+          header: { controller: 'NavCtrl',     templateUrl: 'modules/views/nav.html' },
+          main:   { controller: 'PrinterCtrl', templateUrl: 'modules/views/printer.html' }
+        }
+      });
+  })
   .controller('PrinterCtrl', function($scope, $state, $window, CurrentPrinter, AllPrinters, focus) {
     $scope.currentPrinter = CurrentPrinter.get();
     $scope.availablePrinters = AllPrinters;

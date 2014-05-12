@@ -13,6 +13,16 @@ angular
     'angularMoment',
     'ngAnimate'
   ])
+  .config(function($stateProvider) {
+    $stateProvider
+      .state('payments', {
+        url: '^/payments/:operator',
+        views: {
+          header: { controller: 'NavCtrl',      templateUrl: 'modules/views/nav.html' },
+          main:   { controller: 'PaymentsCtrl', templateUrl: 'modules/views/payments.html' }
+        }
+      });
+  })
   .controller('PaymentsCtrl', function($scope, $state, $stateParams, Operators, Payments, focus) {
     $scope.query = {
       day:   $stateParams.day,
@@ -55,3 +65,4 @@ angular
 
     focus('start');
   });
+

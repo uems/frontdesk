@@ -5,6 +5,16 @@ angular
     'ui.router',
     'ngAnimate'
   ])
+  .config(function($stateProvider) {
+    $stateProvider
+      .state('home', {
+        url: '^/',
+        views: {
+          header: { controller: 'SearchCtrl', templateUrl: 'modules/views/search.html' },
+          main:   { controller: 'HomeCtrl',   templateUrl: 'modules/views/home.html'   }
+        }
+      });
+  })
   .controller('HomeCtrl', function($scope, $state) {
     $scope.createPerson = function() {
       $state.go('create');

@@ -9,6 +9,16 @@ angular
     'ui.keypress',
     'ngAnimate'
   ])
+  .config(function($stateProvider) {
+    $stateProvider
+      .state('create', {
+        url: '^/create',
+        views: {
+          header: { controller: 'NavCtrl',    templateUrl: 'modules/views/nav.html' },
+          main:   { controller: 'CreateCtrl', templateUrl: 'modules/views/create.html' }
+        }
+      });
+  })
   .controller('CreateCtrl', function($scope, $state, $stateParams, People, focus) {
     focus('email');
 
@@ -23,3 +33,4 @@ angular
       });
     };
   });
+

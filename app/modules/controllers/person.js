@@ -11,6 +11,16 @@ angular
     'ui.keypress',
     'ngAnimate'
   ])
+  .config(function($stateProvider) {
+    $stateProvider
+      .state('person', {
+        url: '^/person/:xid',
+        views: {
+          header: { controller: 'NavCtrl',       templateUrl: 'modules/views/nav.html' },
+          main:   { controller: 'PersonMainCtrl',templateUrl: 'modules/views/person.html' }
+        }
+      });
+  })
   .controller('PersonMainCtrl', function($scope, $stateParams, $state, People) {
     function decideState() {
       var needsName     = !$scope.person.name;
@@ -76,3 +86,4 @@ angular
 
     $scope.reload();
   });
+
