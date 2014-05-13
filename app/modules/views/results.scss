@@ -1,7 +1,6 @@
 @import 'modules/shared';
 
 main.search {
-  @include in-out(Left,Left);
   padding-top: 1rem;
 
   header {

@@ -1,8 +1,6 @@
 @import 'modules/shared';
 
 main.person {
-  @include in-out(Right,Right);
-
   padding: 2rem 4rem;
 
   header {
