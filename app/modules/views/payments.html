@@ -10,7 +10,7 @@
     <label>
       dia
     </label>
-    <input ng-model="query.day"   focus-on="day"   ng-blur="doQuery()"/>,
+    <input ng-model="query.day"   focus-on="day" ng-blur="changeDay()"/>,
     <label>
       das
     </label>
@@ -24,7 +24,7 @@
     {{ filtered.length }} operações
   </h2>
   <h2 ng-show="payments.$resolved">
-    R$ {{ sum(filtered) }}
+    R$ {{ sumOfFiltered }}
   </h2>
 </header>
 <header class="print">

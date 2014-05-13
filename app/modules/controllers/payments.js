@@ -37,6 +37,10 @@ angular
     $scope.changeOperator = function() {
       $state.go('payments', { operator: $scope.operator, day: $scope.query.day });
     };
+    $scope.changeDay = function() {
+      if ($stateParams.day === $scope.query.day) { return; }
+      $state.go('payments', { operator: $scope.operator, day: $scope.query.day });
+    };
 
     $scope.doQuery = function() {
       $scope.query.ip = Operators[$stateParams.operator];
@@ -55,14 +59,15 @@ angular
 
     function summer(a,b) { return a + b; }
 
-    $scope.sum = function(entries) {
-      return _.chain(entries)
-              .pluck('paid')
-              .reduce(summer, 0)
-              .value();
-    };
-    $scope.doQuery();
+    $scope.$watchCollection('filtered', function() {
+      $scope.sumOfFiltered = _.chain($scope.filtered)
+                              .pluck('paid')
+                              .reduce(summer, 0)
+                              .value();
+    });
 
-    focus('start');
+
+    focus('day');
+    $scope.doQuery();
   });
 
